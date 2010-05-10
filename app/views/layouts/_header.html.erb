@@ -1,0 +1,29 @@
+<div id="header">
+<div id="usermenu">
+<% if logged_in? %>
+	<span id="greeting"><%=t "Hallo " %> <%= link_to h(current_user.name), user_url(current_user.login ? current_user.login : current_user.id) %>!</span>
+	<span id="settings"><%= link_to t("settings"), edit_user_url(current_user.login ? current_user.login : current_user.id ) %></span>
+	<span id="logout"><%= link_to t("logout"), session_path(), :method => :delete %>?</span>
+<% else %>
+  <% if !(params[:controller] == "welcome" and params[:action] == "index") %>
+    <% if (params[:controller] == "users")%>
+      <span><%=link_to t("Login"), new_session_url()%></span> 
+    <% else %>
+      <span><%=link_to t("Register"), new_user_url() %></span>
+    <% end %>
+  &bull;
+  <% end %>
+  <span>[<%= link_to "en", {:controller => "sessions", :action => "set_language", :id => "en_US"}, { :title => t("Set language to English") } %>]</span> 
+  <span>[<%= link_to "it", {:controller => "sessions", :action => "set_language", :id => "it_IT"}, { :title => t("Set language to Italian")} %>]</span>
+<% end %>
+</div>
+<div id="logo">
+	<h1>Filo<span class="dot" id="dot0">.</span><span class="dot" id="dot1">.</span><span class="dot" id="dot2">.</span> <span class="dot" id="dot3">.</span> <span class="dot" id="dot4">.</span> <span class="dot" id="dot5">.</span></h1>
+	<span id="subtitle"><%=t "the line that joins your dots" %></span>
+</div>
+
+<% if ( !["welcome", "sessions"].include?(params[:controller]) and 
+	!(params[:controller] == "u" and params[:action] == "index")) %>
+  <div id="goback"><%= link_to "&lt;&lt;", u_url %></div>
+<% end %>
+</div>
