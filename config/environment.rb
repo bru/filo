@@ -23,18 +23,6 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'i18n'
   config.gem 'mysql'
-    
-  config.gem 'cucumber'
-  config.gem 'cucumber-rails', :version => '>=0.3.0', :lib => false
-  config.gem 'webrat'
-  config.gem 'rspec',  :version => '>=1.2.9', :lib => false
-  config.gem 'rspec-rails', :version =>  '>=1.2.9', :lib => false
-  config.gem 'launchy'
-  config.gem 'configuration'
-  config.gem 'factory_girl'
-  config.gem 'database_cleaner'
-  config.gem 'timecop'
-  config.gem 'fakeweb'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
