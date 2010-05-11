@@ -1,0 +1,14 @@
+clearance
+formtastic
+i18n
+mysql
+webrat
+rspec
+rspec-rails
+launchy
+configuration
+factory_girl
+database_cleaner
+timecop
+fakeweb
+
