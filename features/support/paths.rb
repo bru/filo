@@ -12,7 +12,13 @@ module NavigationHelpers
       new_password_path
 
     # Add more page name => path mappings here
-
+    when /the new knot page/i
+      new_knot_path
+    when /the knots page/i
+      knots_path
+    when /^the edit knot page for "([^\"]*)"$/
+      knot = Knot.find_by_url($1)
+      edit_knot_path(knot)
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

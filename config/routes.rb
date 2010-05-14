@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :knots
+
   
   map.delete_user "/users/:id/delete", :controller => "users", :action => "destroy"
   map.resources :users, :controller => 'users', :only => [:destroy]

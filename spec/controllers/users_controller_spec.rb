@@ -21,12 +21,12 @@ describe UsersController do
   
     describe "DELETE 'destroy'" do
       it "should be successful" do
-        post 'destroy', :id => @user.id
+        delete 'destroy', :id => @user.id
         response.should be_redirect
       end
       
       it "should report success" do
-        post 'destroy', :id => @user.id
+        delete 'destroy', :id => @user.id
         flash[:notice].should_not be_nil
       end
     end

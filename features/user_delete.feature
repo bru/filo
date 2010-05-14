@@ -11,6 +11,6 @@ Feature: User delete
       Then I should see "Are you sure?"
       And I press "Yes"
       Then I should be signed out
-      And I should see "notice" messages
+      And I should see a notice message
       When I return next time
       Then I should be signed out

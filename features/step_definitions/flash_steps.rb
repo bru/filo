@@ -1,4 +1,4 @@
-Then /^I should see "([^\"]*)" messages$/ do |flash|
+Then /^I should see an? ([^\s]*) message$/ do |flash|
   within("#flash_" + flash) do |content|
     regexp = Regexp.new(".+")
     if content.respond_to? :should
