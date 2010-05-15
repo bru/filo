@@ -1,10 +1,11 @@
 class KnotsController < ApplicationController
   before_filter :authenticate
+  before_filter :find_and_require_owner, :only => [:edit, :update, :destroy]
   
   # GET /knots
   # GET /knots.xml
   def index
-    @knots = Knot.all
+    @knots = current_user.knots
 
     respond_to do |format|
       format.html # index.html.erb
@@ -36,13 +37,13 @@ class KnotsController < ApplicationController
 
   # GET /knots/1/edit
   def edit
-    @knot = Knot.find(params[:id])
   end
 
   # POST /knots
   # POST /knots.xml
   def create
     @knot = Knot.new(params[:knot])
+    @knot.user = current_user
 
     respond_to do |format|
       if @knot.save
@@ -59,7 +60,6 @@ class KnotsController < ApplicationController
   # PUT /knots/1
   # PUT /knots/1.xml
   def update
-    @knot = Knot.find(params[:id])
 
     respond_to do |format|
       if @knot.update_attributes(params[:knot])
@@ -76,12 +76,17 @@ class KnotsController < ApplicationController
   # DELETE /knots/1
   # DELETE /knots/1.xml
   def destroy
-    @knot = Knot.find(params[:id])
     @knot.destroy
     flash[:notice] = 'Knot was successfully trashed.'
     respond_to do |format|
       format.html { redirect_to(knots_url) }
       format.xml  { head :ok }
     end
+  end
+  
+protected
+  def find_and_require_owner
+    @knot = Knot.find(params[:id])
+    deny_access(I18n.t("controllers.knots.require_owner.denied")) unless (@knot && @knot.user == current_user)
   end
 end
