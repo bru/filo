@@ -3,30 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
  <head>
   <title>Filo :: <%= beautify_title %></title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, user-scalable=no" />
-<link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
   <%= stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes'%>
   <%= javascript_include_tag 'jquery', 'md5' %>
-
  </head>
 <body>
 <div id="container">
- <div id="flash">
-   <% flash.each do |key, value| -%>
-     <div id="flash_<%= key %>"><%=h value %></div>
-   <% end -%>
- </div> 
+ <%= flash_messages %>
  <%= yield %> 
 </div>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-111816-3");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
 </body>
 </html>

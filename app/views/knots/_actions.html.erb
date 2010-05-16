@@ -1,0 +1,14 @@
+<div class="actions">
+	<div class="time">
+	<% if knot.unread? %>
+	  <%= time_ago_in_words(knot.created_at) %> <%=t "knots._actions.ago"%> &bull; 
+		<%= link_to t("knots._action.show"), skip_knot_path(knot) %> 
+		<%= link_to t("knots._action.skip"), skip_knot_path(knot) %> 
+		<%= link_to t("knots._action.edit"), edit_knot_path(knot) %>
+		
+	<% else %>
+	  <%= time_ago_in_words(knot.last_read_at) unless knot.last_read_at.nil? %> <%=t "knots._actions.ago"%> &bull;
+		<%= link_to t("knots._actions.replay"), replay_knot_path(knot) %>
+	<% end %>
+		<%= link_to t("knots._actions.trash"), trash_knot_path(knot), :confirm => t('knots._actions.confirm_trash') unless knot.trashed? %> 
+</div>

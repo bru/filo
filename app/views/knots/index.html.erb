@@ -1,28 +1,18 @@
 <h1>Listing knots</h1>
-
-<table>
-  <tr>
-    <th>Url</th>
-    <th>Summary</th>
-    <th>Title</th>
-    <th>State</th>
-    <th>User</th>
-  </tr>
-
-<% @knots.each do |knot| %>
-  <tr id="knot-<%= knot.id %>">
-    <td><%=h knot.url %></td>
-    <td><%=h knot.summary %></td>
-    <td><%=h knot.title %></td>
-    <td><%=h knot.state %></td>
-    <td><%=h knot.user_id %></td>
-    <td><%= link_to 'Show', knot %></td>
-    <td><%= link_to 'Edit', edit_knot_path(knot) %></td>
-    <td><%= link_to 'Trash', knot, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
 <%= link_to 'New knot', new_knot_path %>
+
+<h2><%= t("knots.index.unread")%></h2>
+<ol class="knots unread">
+<%= render :partial => 'knot', :collection => @knots.unread %>
+</ol>
+
+<h2><%= t("knots.index.read")%></h2>
+<ol class="knots read">
+<%= render :partial => 'knot', :collection => @knots.read %>
+</ol>
+
+<div id="trashcan" >
+  <%=t("knots.index.trash_count") %>
+</div>
+
+

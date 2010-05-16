@@ -11,4 +11,4 @@ factory_girl
 database_cleaner
 timecop
 fakeweb
-
+aasm

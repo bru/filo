@@ -9,13 +9,14 @@ describe KnotsController do
   describe "when signed in" do 
     before(:each) do
       @user = Factory(:email_confirmed_user)
+      @knot = Factory(:knot, :user_id => @user.id)
       @controller.current_user = @user
     end
     describe "GET index" do
       it "assigns all knots as @knots" do
-        Knot.stub(:find).with(:all).and_return([mock_knot])
+        @user.stub(:knots).and_return([@knot])
         get :index
-        assigns[:knots].should == [mock_knot]
+        assigns[:knots].should == [@knot]
       end
     end
 
@@ -37,9 +38,9 @@ describe KnotsController do
 
     describe "GET edit" do
       it "assigns the requested knot as @knot" do
-        Knot.stub(:find).with("37").and_return(mock_knot)
+        Knot.stub(:find).and_return(@knot)
         get :edit, :id => "37"
-        assigns[:knot].should equal(mock_knot)
+        assigns[:knot].should equal(@knot)
       end
     end
 
@@ -47,13 +48,13 @@ describe KnotsController do
 
       describe "with valid params" do
         it "assigns a newly created knot as @knot" do
-          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:save => true))
+          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:user= => true, :save => true))
           post :create, :knot => {:these => 'params'}
           assigns[:knot].should equal(mock_knot)
         end
 
         it "redirects to the created knot" do
-          Knot.stub(:new).and_return(mock_knot(:save => true))
+          Knot.stub(:new).and_return(mock_knot(:user= => true, :save => true))
           post :create, :knot => {}
           response.should redirect_to(knots_path)
         end
@@ -61,13 +62,13 @@ describe KnotsController do
 
       describe "with invalid params" do
         it "assigns a newly created but unsaved knot as @knot" do
-          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:save => false))
+          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:user= => true, :save => false))
           post :create, :knot => {:these => 'params'}
           assigns[:knot].should equal(mock_knot)
         end
 
         it "re-renders the 'new' template" do
-          Knot.stub(:new).and_return(mock_knot(:save => false))
+          Knot.stub(:new).and_return(mock_knot(:user= => true, :save => false))
           post :create, :knot => {}
           response.should render_template('new')
         end
@@ -79,7 +80,7 @@ describe KnotsController do
 
       describe "with valid params" do
         it "updates the requested knot" do
-          Knot.should_receive(:find).with("37").and_return(mock_knot)
+          Knot.should_receive(:find).and_return(mock_knot)
           mock_knot.should_receive(:update_attributes).with({'these' => 'params'})
           put :update, :id => "37", :knot => {:these => 'params'}
         end
@@ -99,7 +100,7 @@ describe KnotsController do
 
       describe "with invalid params" do
         it "updates the requested knot" do
-          Knot.should_receive(:find).with("37").and_return(mock_knot)
+          Knot.should_receive(:find).and_return(mock_knot)
           mock_knot.should_receive(:update_attributes).with({'these' => 'params'})
           put :update, :id => "37", :knot => {:these => 'params'}
         end
@@ -121,7 +122,7 @@ describe KnotsController do
 
     describe "DELETE destroy" do
       it "destroys the requested knot" do
-        Knot.should_receive(:find).with("37").and_return(mock_knot)
+        Knot.should_receive(:find).and_return(mock_knot)
         mock_knot.should_receive(:destroy)
         delete :destroy, :id => "37"
       end

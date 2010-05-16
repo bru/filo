@@ -1,12 +1,11 @@
 class KnotsController < ApplicationController
   before_filter :authenticate
-  before_filter :find_and_require_owner, :only => [:edit, :update, :destroy]
+  before_filter :find_and_require_owner, :only => [:edit, :update, :destroy, :skip, :read, :trash, :replay]
   
   # GET /knots
   # GET /knots.xml
   def index
     @knots = current_user.knots
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @knots }
@@ -77,16 +76,54 @@ class KnotsController < ApplicationController
   # DELETE /knots/1.xml
   def destroy
     @knot.destroy
-    flash[:notice] = 'Knot was successfully trashed.'
+    flash[:notice] = I18n.t('controllers.knots.destroy.success')
     respond_to do |format|
       format.html { redirect_to(knots_url) }
       format.xml  { head :ok }
     end
   end
   
+  # Custom workflow actions
+  
+  # GET /knots/1/skip
+  def skip
+    @knot.read!
+    flash[:notice] = I18n.t('controllers.knots.skip.success')
+    respond_to do |format|
+      format.html { redirect_to(knots_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  # GET /knots/1/replay
+  def replay
+    @knot.unread!
+    flash[:notice] = I18n.t('controllers.knots.replay.success')
+    respond_to do |format|
+      format.html { redirect_to(knots_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  # GET /knots/1/trash
+  def trash
+    @knot.trash!
+    flash[:notice] = I18n.t('controllers.knots.trash.success')
+    respond_to do |format|
+      format.html { redirect_to(knots_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  # GET /knots/1/read
+  def read
+    @knot.read!
+    redirect_to @knot.url
+  end
+  
 protected
   def find_and_require_owner
-    @knot = Knot.find(params[:id])
-    deny_access(I18n.t("controllers.knots.require_owner.denied")) unless (@knot && @knot.user == current_user)
+    @knot = current_user.knots.find(params[:id])
+    deny_access(I18n.t("controllers.knots.require_owner.denied")) unless @knot
   end
 end

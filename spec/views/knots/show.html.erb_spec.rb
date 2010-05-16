@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe "/knots/show.html.erb" do
-  include KnotsHelper
   before(:each) do
     assigns[:knot] = @knot = stub_model(Knot,
       :url => "value for url",

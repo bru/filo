@@ -29,5 +29,21 @@ describe KnotsController do
     it "recognizes and generates #destroy" do
       { :delete => "/knots/1" }.should route_to(:controller => "knots", :action => "destroy", :id => "1") 
     end
+    
+    it "recognizes and generates #skip" do
+      { :get => "/knots/1/skip" }.should route_to(:controller => "knots", :action => "skip", :id => "1") 
+    end
+    
+    it "recognizes and generates #read" do
+      { :get => "/knots/1/read" }.should route_to(:controller => "knots", :action => "read", :id => "1") 
+    end
+    
+    it "recognizes and generates #replay" do
+      { :get => "/knots/1/replay" }.should route_to(:controller => "knots", :action => "replay", :id => "1") 
+    end
+    
+    it "recognizes and generates #trash" do
+      { :get => "/knots/1/trash" }.should route_to(:controller => "knots", :action => "trash", :id => "1") 
+    end
   end
 end

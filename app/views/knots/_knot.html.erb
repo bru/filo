@@ -1,0 +1,8 @@
+<% @knots.each do |knot| %>
+  <li id="knot-<%= knot.id %>" class="knot <%= cycle("even", "odd") %>">
+    <%= link_to h(knot.human_title), read_knot_path(knot), { :class => "article", :title => h(knot.url) } %>
+    <p class="summary"><%=h knot.summary %></p>
+    <%= render :partial => 'actions', :locals => { :knot => knot } %>
+
+  </li>
+<% end %>

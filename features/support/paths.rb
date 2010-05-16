@@ -19,6 +19,9 @@ module NavigationHelpers
     when /^the edit knot page for "([^\"]*)"$/
       knot = Knot.find_by_url($1)
       edit_knot_path(knot)
+    when /^the read knot page for "([^\"]*)"$/
+      knot = Knot.find_by_url($1)
+      read_knot_path(knot)
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

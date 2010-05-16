@@ -13,3 +13,9 @@ Given /^there is a knot for "([^\"]*)"$/ do |url|
   And "I press \"Create\""
   And "I sign out"
 end
+
+Given /^I already read the knot for "([^\"]*)"$/ do |url|
+  knot = Knot.find_by_url(url)
+  knot.state = "read"
+  knot.save
+end
