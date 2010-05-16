@@ -22,8 +22,8 @@ Rails::Initializer.run do |config|
   config.gem "clearance"
   config.gem 'formtastic'
   config.gem 'i18n'
-  config.gem 'mysql'
   config.gem 'aasm'
+  
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
