@@ -20,18 +20,17 @@ class UsersController < Clearance::UsersController
     redirect_to knots_path
   end
   
-  class NotOwner < Exception
-  end
+  class NotOwner < StandardError; end
   
   protected
   
   def find_user
     @user = User.find(params[:id])
-    throw NotOwner unless @user == current_user
+    raise NotOwner unless @user == current_user
   rescue ActiveRecord::RecordNotFound
-    deny_access(I18n.t("controllers.users.find_user.not_found"))
+    deny_action(I18n.t("controllers.users.find_user.not_found"))
   rescue NotOwner
-    deny_access(I18n.t("controllers.users.find_user.unauthorized"))
+    deny_action(I18n.t("controllers.users.find_user.unauthorized"))
   end
 
 end

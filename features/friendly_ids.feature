@@ -5,6 +5,6 @@ Feature: Friendly User slugs
   
   Scenario: User visiting his settings via slug
     Given I have signed in with "email@person.com/password"
-    When I go to "/users/email-at-example-dot-com/edit"
+    When I go to /users/email-at-person-dot-com/edit
     Then I should be on the settings page for "email@person.com"
     

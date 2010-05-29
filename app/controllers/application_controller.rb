@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
+  
+  private
+  
+  def deny_action(flash_message = nil)
+    flash[:alert] = flash_message if flash_message
+    redirect_to root_path
+  end
 end
