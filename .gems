@@ -12,3 +12,5 @@ database_cleaner
 timecop
 fakeweb
 aasm
+friendly_id --version '2.3.4'
+stringex

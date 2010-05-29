@@ -24,6 +24,8 @@ Rails::Initializer.run do |config|
   config.gem 'i18n'
   config.gem 'aasm'
   config.gem 'haml'
+  config.gem "friendly_id", :version => "~> 2.3"
+  config.gem "stringex"
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).
