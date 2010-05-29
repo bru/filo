@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  before_filter :authenticate
+class UsersController < Clearance::UsersController
+  before_filter :authenticate, :only => [:destroy]
   
   def destroy
     if request.delete?

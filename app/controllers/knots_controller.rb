@@ -124,6 +124,7 @@ class KnotsController < ApplicationController
 protected
   def find_and_require_owner
     @knot = current_user.knots.find(params[:id])
-    deny_access(I18n.t("controllers.knots.require_owner.denied")) unless @knot
+  rescue ActiveRecord::RecordNotFound
+    deny_access(I18n.t("controllers.knots.require_owner.denied"))
   end
 end
