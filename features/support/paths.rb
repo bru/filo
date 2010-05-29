@@ -22,6 +22,9 @@ module NavigationHelpers
     when /^the read knot page for "([^\"]*)"$/
       knot = Knot.find_by_url($1)
       read_knot_path(knot)
+    when /^the settings page for "([^\"]*)"$/
+      user = User.find_by_email($1)
+      edit_user_path(user)
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

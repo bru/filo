@@ -1,0 +1,1 @@
+AVAILABLE_LANGUAGES = [["Italiano", "it"], ["English", "en"]]

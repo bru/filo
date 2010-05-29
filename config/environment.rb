@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'i18n'
   config.gem 'aasm'
+  config.gem 'haml'
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).

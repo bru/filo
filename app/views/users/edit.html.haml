@@ -1,0 +1,11 @@
+%h2 Edit user settings
+- semantic_form_for @user do |form|
+  = form.error_messages
+  - form.inputs do
+    = form.input :nickname
+    = form.input :language, :as => :select, :collection => AVAILABLE_LANGUAGES
+  - form.inputs "Password" do
+    = form.input :password, :as => :password, :label => "Choose password"             
+    = form.input :password_confirmation, :as => :password, :label => "Confirm password"
+  - form.buttons do
+    = form.commit_button "Save"
