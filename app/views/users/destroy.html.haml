@@ -1,0 +1,6 @@
+%h1 Are you sure?
+%p You are about to delete your account on Filo and all data associated to it.
+%h3 Are you sure?
+- form_for current_user, :html => { :method => :delete, :class => "delete_user" } do |f|
+  = submit_tag "Yes"
+  = link_to "No, I was joking", knots_path

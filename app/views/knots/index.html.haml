@@ -1,0 +1,10 @@
+%h1 Listing knots
+= link_to 'New knot', new_knot_path
+%h2= t("knots.index.unread")
+%ol.knots.unread
+  = render :partial => 'knot', :collection => @knots.unread
+%h2= t("knots.index.read")
+%ol.knots.read
+  = render :partial => 'knot', :collection => @knots.read
+#trashcan
+  = t("knots.index.trash_count")

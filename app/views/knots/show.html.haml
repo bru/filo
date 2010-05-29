@@ -1,0 +1,18 @@
+%p
+  %b Url:
+  = h @knot.url
+%p
+  %b Summary:
+  = h @knot.summary
+%p
+  %b Title:
+  = h @knot.title
+%p
+  %b State:
+  = h @knot.state
+%p
+  %b User:
+  = h @knot.user_id
+= link_to 'Edit', edit_knot_path(@knot)
+|
+\#{link_to 'Back', knots_path}

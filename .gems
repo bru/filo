@@ -1,3 +1,4 @@
+haml
 clearance
 formtastic
 i18n --version '0.3.6'
