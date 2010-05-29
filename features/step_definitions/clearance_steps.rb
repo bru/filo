@@ -60,7 +60,7 @@ end
 
 When /^I follow the confirmation link sent to "(.*)"$/ do |email|
   user = User.find_by_email(email)
-  visit new_user_confirmation_path(:user_id => user,
+  visit new_user_confirmation_path(:user_id => user.id,
                                    :token   => user.confirmation_token)
 end
 
@@ -78,7 +78,7 @@ end
 
 When /^I follow the password reset link sent to "(.*)"$/ do |email|
   user = User.find_by_email(email)
-  visit edit_user_password_path(:user_id => user,
+  visit edit_user_password_path(:user_id => user.id,
                                 :token   => user.confirmation_token)
 end
 
