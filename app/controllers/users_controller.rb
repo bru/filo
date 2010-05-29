@@ -15,9 +15,13 @@ class UsersController < Clearance::UsersController
   end
   
   def update
-    @user.update_attributes(params[:user])
-    flash[:notice] = I18n.t('controllers.users.update.success')
-    redirect_to knots_path
+    if @user.update_attributes(params[:user])
+      flash[:notice] = I18n.t('controllers.users.update.success')
+      redirect_to knots_path
+    else
+      flash[:alert] = I18n.t('controllers.users.update.failure')
+      render :action => "edit"
+    end
   end
   
   class NotOwner < StandardError; end

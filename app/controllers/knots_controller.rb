@@ -46,7 +46,7 @@ class KnotsController < ApplicationController
 
     respond_to do |format|
       if @knot.save
-        flash[:notice] = 'Knot was successfully created.'
+        flash[:notice] = I18n.t('controllers.knots.create.success')
         format.html { redirect_to(knots_path) }
         format.xml  { render :xml => @knot, :status => :created, :location => @knot }
       else
@@ -62,7 +62,7 @@ class KnotsController < ApplicationController
 
     respond_to do |format|
       if @knot.update_attributes(params[:knot])
-        flash[:notice] = 'Knot was successfully updated.'
+        flash[:notice] = I18n.t('controllers.knots.update.success')
         format.html { redirect_to(knots_path) }
         format.xml  { head :ok }
       else
@@ -125,6 +125,6 @@ protected
   def find_and_require_owner
     @knot = current_user.knots.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    deny_access(I18n.t("controllers.knots.require_owner.denied"))
+    deny_action( I18n.t("controllers.knots.require_owner.denied") )
   end
 end

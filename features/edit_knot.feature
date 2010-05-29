@@ -28,5 +28,5 @@ Feature: Edit Knot
     And I sign out
     And I have signed in with "evil@person.com/password"
     When I go to the edit knot page for "http://example.com"
-    Then I should be on the sign in page
-    And I should see a failure message 
+    Then I should be on the knots page
+    And I should see an alert message 

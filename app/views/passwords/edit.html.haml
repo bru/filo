@@ -1,10 +1,10 @@
-%h2 Change your password
+%h2=t("passwords.edit.title")
 %p
-  Your password has been reset. Choose a new password below.
+  =t("passwords.edit.blurb")
 - semantic_form_for(:user, :url  => user_password_path(@user.id, :token => @user.confirmation_token), :html => { :method => :put }) do |form|
   = form.error_messages
   - form.inputs do
-    = form.input :password, :as => :password, :label => "Choose password"         
-    = form.input :password_confirmation, :as => :password, :label => "Confirm password"        
+    = form.input :password, :as => :password, :label => t("passwords.edit.password_label")         
+    = form.input :password_confirmation, :as => :password, :label => t("passwords.edit.password_confirm_label")        
   - form.buttons do
-    = form.commit_button "Save this password"
+    = form.commit_button t("passwords.edit.save_button")

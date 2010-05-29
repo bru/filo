@@ -1,18 +1,15 @@
 %p
-  %b Url:
+  %b= t("knots.show.url_label") + ":"
   = h @knot.url
 %p
-  %b Summary:
+  %b= t("knots.show.summary_label") + ":"
   = h @knot.summary
 %p
-  %b Title:
+  %b= t("knots.show.title_label") + ":"
   = h @knot.title
 %p
-  %b State:
+  %b= t("knots.show.state_label") + ":"
   = h @knot.state
-%p
-  %b User:
-  = h @knot.user_id
-= link_to 'Edit', edit_knot_path(@knot)
+= link_to t("knots.show.edit_link"), edit_knot_path(@knot)
 |
-\#{link_to 'Back', knots_path}
+\#{link_to t("knots.show.back_link"), knots_path}

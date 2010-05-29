@@ -9,7 +9,7 @@ Feature: User delete
       Then I should be signed in
       And I follow the delete user link for user with email "email@person.com"
       Then I should see "Are you sure?"
-      And I press "Yes"
+      And I press "Proceed"
       Then I should be signed out
       And I should see a notice message
       When I return next time

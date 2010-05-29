@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
                   :max_length => 40 
   
   has_many :knots
-  validates_length_of :nickname, :within => 3..40, :allow_nil => true
-  validates_uniqueness_of :nickname, :allow_nil => true
+  validates_length_of :nickname, :within => 3..40, :allow_blank => true
+  validates_uniqueness_of :nickname, :allow_blank => true
   
   def nick_or_email
     nickname.blank? ? email : nickname

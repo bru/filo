@@ -2,4 +2,95 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  controllers:
+    knots:
+      replay:
+        success: "The knot has been marked as unread"
+      create:
+        success: "The knot has been successfully created"
+      update:
+        success: "The knot has been updated"
+      skip: 
+        success: "The knot has been marked as read"
+      trash:
+        success: "The knot has been moved to the trashcan"
+      destroy:
+        success: "The knot has been deleted"
+    users:
+      update:
+        success: "The user has been update"
+        failure: "It was not possible to update the user"
+      destroy: 
+        success: "The user and all data belonging to him have been deleted"
+  
+  knots:
+    _actions:
+      ago: "ago"
+      replay: "replay"
+      trash: "trash"
+      confirm_trash: "Are you sure?"
+    _form:
+      url_hint: "e.g.: http://interesting.but/too/long"
+    edit:
+      title: "Edit Knot"
+      back_link: "Back"
+    index:
+      title: "Your Knots"
+      new_knot_link: "Create New Knot"
+      unread: "Unread Knots"
+      read: "Read Knots"
+      trash_count: "Trash"
+    new:
+      title: "New Knot"
+      back_link: "Back"
+    show:
+      url_label: "URL"
+      summary_label: "Summary"
+      title_label: "Title"
+      state_label: "State"
+      edit_link: "Edit"
+      back_link: "Back"
+  passwords:
+    edit:
+      title: "New Password"
+      blurb: "Your password has been reset. Please pick a new one below."
+      password_label: "Choose Password"
+      password_confirm_label: "Confirm Password"
+      save_button: "Save this password"
+    new:
+      title: "Reset Password"
+      blurb: "If you forgot your password, enter your email below and we'll reset it for you and send you instructions on how to get access to your account."
+      email_label: "Email address"
+      reset_button: "Reset password"
+  sessions:
+    new:
+      title: "Sign in"
+      sign_in_button: "Sign in"
+  static:
+    about:
+      title: "About Filo"
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    contacts:
+      title: "Contacts"
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    home:
+      title: "Welcome to Filo"
+      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  users:
+    _inputs:
+      password_confirmation_label: "Confirm Password"
+    destroy:
+      title: "Delete User Account"
+      blurb: "Beware. If you continue your account on Filo will be destroyed, together with all the knots you have collected"
+      are_you_sure: "Are you sure?"
+      destroy_button: "Proceed"
+      back_link: "No! I was joking!"
+    edit:
+      title: "Edit User Account"
+      password_fieldset: "Change Password"
+      password_label: "Choose a new Password"
+      password_confirmation_label: "Confirm the new Password"
+      save_button: "Save"
+    new:
+      title: "Sign up"
+      sign_up_button: "Sign up"

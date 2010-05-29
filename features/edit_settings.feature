@@ -19,8 +19,8 @@ Feature: User edit settings
     # And I should see "Hello"
     
   Scenario: user changing password
-    When I fill in "Choose Password" with "test"
-    And I fill in "Confirm Password" with "test"
+    When I fill in "Choose a new Password" with "test"
+    And I fill in "Confirm the new Password" with "test"
     And I press "Save"
     Then I should be on the knots page
     And I should see a notice message
