@@ -1,5 +1,6 @@
+rails -v 2.3.5
+pg
 haml
-rails --version '2.3.5'
 clearance
 formtastic
 i18n --version '0.3.6'
