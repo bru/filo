@@ -69,6 +69,8 @@ en:
     new:
       title: "Sign in"
       sign_in_button: "Sign in"
+      sign_up_link: "Sign up"
+      forgotten_password_link: "Forgotten password"
   static:
     about:
       title: "About Filo"

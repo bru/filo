@@ -3,7 +3,15 @@ ActionController::Routing::Routes.draw do |map|
 
   
   map.delete_user "/users/:id/delete", :controller => "users", :action => "destroy"
-  map.resources :users, :controller => 'users'
+  map.resources :users, :controller => 'users' do |users|
+    users.resource  :password, 
+                    :controller => 'passwords', 
+                    :only => [:edit, :update]
+                    
+    users.resource :confirmation,
+      :controller => 'confirmations',
+      :only       => [:new, :create]
+  end
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
 
