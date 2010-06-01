@@ -1,0 +1,18 @@
+- if signed_in?
+  %span#greeting
+    = t "layouts._header.hello"
+    = link_to h(current_user.nick_or_email), user_url(current_user)
+    \!
+  %span#settings= link_to t("layouts._header.settings"), edit_user_url(current_user)
+  %span#logout
+    = link_to t("layouts._header.sign_out"), sign_out_path
+    ?
+- else
+  - unless (params[:controller] == "static" && params[:action] == "index") 
+    %span= link_to t("layouts._header.sign_in"), sign_in_path()
+    %span= link_to t("layouts._header.sign_up"), sign_up_path()
+    / \&bull;
+    / %span
+    /   [#{link_to "en", {:controller => "sessions", :action => "set_language", :id => "en"}, { :title => t("Set language to English") }}]
+    / %span
+    /   [#{link_to "it", {:controller => "sessions", :action => "set_language", :id => "it"}, { :title => t("Set language to Italian")}}]

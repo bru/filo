@@ -53,6 +53,14 @@ en:
       state_label: "State"
       edit_link: "Edit"
       back_link: "Back"
+  layouts:
+    _header:
+      hello: "Hello"
+      settings: "Settings"
+      sign_out: "Sign out"
+      sign_in: "Sign in"
+      sign_up: "Sing up"
+      subtitle: "The line that joins your dots"
   passwords:
     edit:
       title: "New Password"
