@@ -95,7 +95,11 @@ en:
       password_fieldset: "Change Password"
       password_label: "Choose a new Password"
       password_confirmation_label: "Confirm the new Password"
+      public_flag: "Make my profile public"
+      public_flag_hint: "This will allow other users to see what you read and planning to read"
       save_button: "Save"
     new:
       title: "Sign up"
       sign_up_button: "Sign up"
+    show:
+      title: "{{name}}'s profile"

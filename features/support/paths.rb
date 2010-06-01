@@ -25,6 +25,11 @@ module NavigationHelpers
     when /^the settings page for "([^\"]*)"$/
       user = User.find_by_email($1)
       edit_user_path(user)
+      
+    when /^the profile page for "([^\"]*)"$/
+      user = User.find_by_email($1)
+      user_path(user)
+      
     when /^(\/.*)$/
       $1
     else

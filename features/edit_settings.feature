@@ -31,5 +31,3 @@ Feature: User edit settings
     Then I should be on the knots page
     And I should see a notice message
     
-  Scenario: user making his reading list public
-  

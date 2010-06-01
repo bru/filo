@@ -3,6 +3,7 @@
   = form.error_messages
   - form.inputs do
     = form.input :nickname
+    = form.input :public_flag, :as => :radio, :label => t("users.edit.public_flag"), :hint => t("users.edit.public_flag_hint"), :collection => { "Yes!" => true, "No" => false}
     = form.input :language, :as => :select, :collection => AVAILABLE_LANGUAGES
   - form.inputs :name => t("users.edit.password_fieldset"), :id => "password_fields" do
     = form.input :password, :as => :password, :label => t("users.edit.password_label")            

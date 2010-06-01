@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
   before_filter :authenticate, :only => [:destroy, :edit, :update]
-  before_filter :find_user, :only => [:destroy, :edit, :update]
+  before_filter :find_user, :only => [:destroy, :edit, :update, :show]
+  before_filter :require_owner, :only => [:destroy, :edit, :update]
   
   def destroy
     if request.delete?
@@ -24,15 +25,25 @@ class UsersController < Clearance::UsersController
     end
   end
   
+  def show
+    unless @user.is_public? 
+      flash[:alert] = "The user you tried to access does not have a public profile"
+      redirect_to knots_path
+    end
+  end
+  
   class NotOwner < StandardError; end
   
   protected
   
   def find_user
     @user = User.find(params[:id])
-    raise NotOwner unless @user == current_user
   rescue ActiveRecord::RecordNotFound
     deny_action(I18n.t("controllers.users.find_user.not_found"))
+  end
+  
+  def require_owner
+    raise NotOwner unless @user == current_user
   rescue NotOwner
     deny_action(I18n.t("controllers.users.find_user.unauthorized"))
   end
