@@ -29,6 +29,9 @@ en:
       replay: "replay"
       trash: "trash"
       confirm_trash: "Are you sure?"
+      show: "Show"
+      skip: "Skip"
+      edit: "Edit"
     _form:
       url_hint: "e.g.: http://interesting.but/too/long"
     edit:

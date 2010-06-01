@@ -1,2 +1,271 @@
-it:
-  hello: "Ciao"
+--- 
+it: 
+  number: 
+    format: 
+      separator: ","
+      precision: 3
+      delimiter: .
+    human: 
+      format: 
+        precision: 1
+        delimiter: ""
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: Kb
+          tb: Tb
+          gb: Gb
+          byte: 
+            one: Byte
+            other: Byte
+          mb: Mb
+    percentage: 
+      format: 
+        delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
+    currency: 
+      format: 
+        format: "%n %u"
+        unit: !binary |
+          4oKs
+
+        separator: .
+        precision: 2
+        delimiter: ","
+  activerecord: 
+    errors: 
+      messages: 
+        greater_than_or_equal_to: deve essere superiore o uguale a {{count}}
+        record_invalid: ""
+        confirmation: non coincide con la conferma
+        less_than_or_equal_to: deve essere meno o uguale a {{count}}
+        blank: "non pu\xC3\xB2 essere lasciato in bianco"
+        invalid: "non \xC3\xA8 valido"
+        exclusion: "\xC3\xA8 riservato"
+        odd: deve essere dispari
+        empty: "non pu\xC3\xB2 essere vuoto"
+        even: deve essere pari
+        too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 {{count}} lettere)"
+        wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di {{count}} lettere)"
+        less_than: deve essere meno di {{count}}
+        equal_to: deve essere uguale a {{count}}
+        greater_than: deve essere superiore a {{count}}
+        accepted: deve essere accettata
+        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 {{count}} lettere)"
+        taken: "\xC3\xA8 gi\xC3\xA0 in uso"
+        inclusion: "non \xC3\xA8 incluso nella lista"
+        not_a_number: "non \xC3\xA8 un numero"
+      template: 
+        body: "Per favore ricontrolla i seguenti campi:"
+        header: 
+          one: "Non posso salvare questo {{model}}: 1 errore"
+          other: "Non posso salvare questo {{model}}: {{count}} errori."
+      full_messages: 
+        format: ""
+  knots: 
+    new: 
+      title: Nuovo
+      back_link: Indietro
+    edit: 
+      title: Modifica Nodo
+      back_link: Indietro
+    _form: 
+      url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
+    show: 
+      url_label: URL
+      title_label: Titolo
+      summary_label: Descrizione
+      state_label: Stato
+      edit_link: Modifica
+      back_link: Indietro
+    index: 
+      new_knot_link: Crea nuovo Nodo
+      title: i tuoi Nodi
+      unread: Nodi da leggere
+      read: Leggi Nodi
+      trash_count: Cestino
+    _actions: 
+      trash: elimina
+      replay: Rileggi
+      confirm_trash: Sei sicuro?
+      ago: fa
+      show: Dettagli
+      skip: Rimanda
+      edit: Modifica
+  controllers: 
+    knots: 
+      destroy: 
+        success: "il nodo \xC3\xA8 stato eliminato"
+      trash: 
+        success: "il noto \xC3\xA8 stato cestinato"
+      replay: 
+        success: "il nodo \xC3\xA8 stato segnato come non letto"
+      create: 
+        success: "Il nodo \xC3\xA8 stato creato"
+      skip: 
+        success: "il nodo \xC3\xA8 stato segnato come gi\xC3\xA0 letto"
+      update: 
+        success: "il nodo \xC3\xA8 stato aggiornato"
+    users: 
+      destroy: 
+        success: l'utente e tutti i dati ad esso associati sono stati cancellati
+      update: 
+        failure: "non \xC3\xA8 stato possibile salvare le modifiche"
+        success: le modifiche sono state salvate
+  passwords: 
+    new: 
+      title: Reimposta Password
+      reset_button: Reimposta Password
+      blurb: Se hai dimenticato la tua password, inserisci qui la tua email. Ti invieremo le istruzioni su come reimpostarla.
+      email_label: Indirizzo email
+    edit: 
+      password_label: Scegli Password
+      title: Nuova Password
+      password_confirm_label: Conferma Password
+      blurb: "La tua password \xC3\xA8 stata re-inizializzata. Scegline un'altra qui. "
+      save_button: Salva questa Password
+  time: 
+    am: am
+    formats: 
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+    pm: pm
+  date: 
+    month_names: 
+    - 
+    - Gennaio
+    - Febbraio
+    - Marzo
+    - Aprile
+    - Maggio
+    - Giugno
+    - Luglio
+    - Agosto
+    - Settembre
+    - Ottobre
+    - Novembre
+    - Dicembre
+    abbr_day_names: 
+    - Dom
+    - Lun
+    - Mar
+    - Mer
+    - Gio
+    - Ven
+    - Sab
+    order: 
+    - :day
+    - :month
+    - :year
+    formats: 
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+    day_names: 
+    - Domenica
+    - "Luned\xC3\xAC"
+    - "Marted\xC3\xAC"
+    - "Mercoled\xC3\xAC"
+    - "Gioved\xC3\xAC"
+    - "Venerd\xC3\xAC"
+    - Sabato
+    abbr_month_names: 
+    - 
+    - Gen
+    - Feb
+    - Mar
+    - Apr
+    - Mag
+    - Giu
+    - Lug
+    - Ago
+    - Set
+    - Ott
+    - Nov
+    - Dic
+  static: 
+    about: 
+      title: "Cos'\xC3\xA8 Filo"
+      text: ""
+    contacts: 
+      title: Contatti
+      text: ""
+    home: 
+      title: Benvenuto su Filo
+      text: ""
+  support: 
+    array: 
+      words_connector: ", "
+      last_word_connector: ", e "
+      two_words_connector: " e "
+    select: 
+      prompt: Scegli
+  hello: Ciao
+  users: 
+    new: 
+      sign_up_button: Iscriviti
+      title: Iscriviti
+    edit: 
+      password_label: Scegli una nuova Password
+      title: Modifica l'account
+      password_fieldset: Cambias Password
+      password_confirmation_label: Conferma la nuova Password
+      save_button: Salva
+    destroy: 
+      title: Elimina l'account
+      are_you_sure: Sei sicuro?
+      destroy_button: Procedi
+      back_link: No! Stavo scherzando!
+      blurb: "Attenzione. Se scegli di procedere il tuo account su Filo sar\xC3\xA0 eliminato, assieme a tutti i riferimenti ai Nodi che hai collezionato fino ad ora."
+    _inputs: 
+      password_confirmation_label: Conferma Password
+  datetime: 
+    prompts: 
+      minute: Minuto
+      month: Mese
+      second: Secondi
+      hour: Ora
+      day: Giorno
+      year: Anno
+    distance_in_words: 
+      less_than_x_minutes: 
+        one: meno di un minuto
+        other: meno di {{count}} minuti
+      x_days: 
+        one: 1 giorno
+        other: "{{count}} giorni"
+      almost_x_years: 
+        one: quasi un anno
+        other: quasi {{count}} anni
+      x_seconds: 
+        one: 1 secondo
+        other: "{{count}} secondi"
+      about_x_hours: 
+        one: circa un'ora
+        other: circa {{count}} ore
+      less_than_x_seconds: 
+        one: meno di un secondo
+        other: meno di {{count}} secondi
+      x_months: 
+        one: 1 mese
+        other: "{{count}} mesi"
+      x_minutes: 
+        one: 1 minuto
+        other: "{{count}} minuti"
+      about_x_years: 
+        one: circa un anno
+        other: circa {{count}} anni
+      about_x_months: 
+        one: circa un mese
+        other: circa {{count}} mesi
+      over_x_years: 
+        one: oltre un anno
+        other: oltre {{count}} anni
+      half_a_minute: mezzo minuto
+  sessions: 
+    new: 
+      sign_in_button: Accedi
+      title: Accedi
