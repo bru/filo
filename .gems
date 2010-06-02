@@ -1,6 +1,6 @@
 rails -v 2.3.5
 pg
-haml
+haml -v 3.0.9
 clearance
 formtastic
 i18n --version '0.3.6'
