@@ -1,0 +1,67 @@
+#login
+  .toolbar
+    %h1 Filo
+    %a.button.flip{ :href => "#about"} About
+    
+  %div
+    %h2 Login
+    - form_for :session, :url => session_path do |form|
+      %ul
+        %li= form.text_field :email, :placeholder => "email"
+        %li= form.password_field :password, :placeholder => "password"
+        %li= form.submit "Sign in", :class => "submit"
+
+#home
+  .toolbar
+    %h1 Filo
+    %a.button.flip{ :href => "#settings"} Settings
+  
+  %div
+    %ul
+      %li.forward
+        %a{ :href => "http://google.com", :target => "_blank"} Google
+      %li.forward
+        %a{ :href => "http://google.com", :target => "_blank"} Google
+      %li.forward
+        %a{ :href => "http://google.com", :target => "_blank"} Google
+      %li.forward
+        %a{ :href => "http://google.com", :target => "_blank"} Google
+        
+    %ul.individual
+      %li
+        %a.slideup{ :href => "#read"} Archive
+      %li
+        %a.slideup{ :href => "#about"} About
+
+    %div.info
+      %p Last knot created yesterday
+      
+#about
+  .toolbar
+    %h1 About
+    %a.button.back{ :href =>"#"} Back
+  %div
+    %p The line that joins your dots
+    
+#read
+  .toolbar
+    %h1 Archive
+    %a.button.back{ :href =>"#"} Back
+  %div
+    %ul
+      %li.forward
+        %a{ :href => "http://google.com"} Google
+      %li.forward
+        %a{ :href => "http://google.com"} Google
+      %li.forward
+        %a{ :href => "http://google.com"} Google
+      %li.forward
+        %a{ :href => "http://google.com"} Google
+                
+#settings
+  .toolbar
+    %h1 Settings
+    %a.button.cancel{ :href => "#" } Cancel
+  %div
+    %ul
+      
