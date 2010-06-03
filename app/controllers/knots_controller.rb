@@ -1,6 +1,6 @@
 class KnotsController < ApplicationController
   before_filter :authenticate
-  before_filter :find_and_require_owner, :only => [:edit, :update, :destroy, :skip, :read, :trash, :replay]
+  before_filter :find_and_require_owner, :except => [:index, :show, :new, :create]
   
   # GET /knots
   # GET /knots.xml
@@ -41,8 +41,7 @@ class KnotsController < ApplicationController
   # POST /knots
   # POST /knots.xml
   def create
-    @knot = Knot.new(params[:knot])
-    @knot.user = current_user
+    @knot = current_user.knots.build(params[:knot])
 
     respond_to do |format|
       if @knot.save
