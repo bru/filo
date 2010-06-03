@@ -1,16 +1,3 @@
-#login
-  .toolbar
-    %h1 Filo
-    %a.button.flip{ :href => "#about"} About
-    
-  %div
-    %h2 Login
-    - form_for :session, :url => session_path do |form|
-      %ul
-        %li= form.text_field :email, :placeholder => "email"
-        %li= form.password_field :password, :placeholder => "password"
-        %li= form.submit "Sign in", :class => "submit"
-
 #home
   .toolbar
     %h1 Filo
@@ -18,14 +5,7 @@
   
   %div
     %ul
-      %li.forward
-        %a{ :href => "http://google.com", :target => "_blank"} Google
-      %li.forward
-        %a{ :href => "http://google.com", :target => "_blank"} Google
-      %li.forward
-        %a{ :href => "http://google.com", :target => "_blank"} Google
-      %li.forward
-        %a{ :href => "http://google.com", :target => "_blank"} Google
+      = render :partial => "knot", :collection =>  @knots.unread
         
     %ul.individual
       %li
@@ -49,14 +29,7 @@
     %a.button.back{ :href =>"#"} Back
   %div
     %ul
-      %li.forward
-        %a{ :href => "http://google.com"} Google
-      %li.forward
-        %a{ :href => "http://google.com"} Google
-      %li.forward
-        %a{ :href => "http://google.com"} Google
-      %li.forward
-        %a{ :href => "http://google.com"} Google
+      = render :partial => "knot", :collection =>  @knots.read
                 
 #settings
   .toolbar
@@ -64,4 +37,3 @@
     %a.button.cancel{ :href => "#" } Cancel
   %div
     %ul
-      

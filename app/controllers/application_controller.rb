@@ -5,14 +5,17 @@ class ApplicationController < ActionController::Base
   include Clearance::Authentication
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-
+  
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
-  
+
+  # Respond to iphone requests
+  acts_as_iphone_controller
   private
   
   def deny_action(flash_message = nil)
     flash[:alert] = flash_message if flash_message
     redirect_to root_path
   end
+  
 end
