@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
       :controller => 'confirmations',
       :only       => [:new, :create]
   end
+  map.resource :session, :controller => 'sessions', :only => [:new, :create, :destroy]
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
 
