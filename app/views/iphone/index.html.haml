@@ -2,26 +2,19 @@
   .toolbar
     %h1 Filo
     %a.button.flip{ :href => "#settings"} Settings
+    %a.button.leftButton.slideup{ :href => "#new" } +
   
   %div
     %ul
-      = render :partial => "knot", :collection =>  @knots.unread
-        
+      = render :partial => "knot", :collection =>  @knots.unread        
+
     %ul.individual
       %li
         %a.slideup{ :href => "#read"} Archive
       %li
         %a.slideup{ :href => "#about"} About
-
     %div.info
-      %p Last knot created yesterday
-      
-#about
-  .toolbar
-    %h1 About
-    %a.button.back{ :href =>"#"} Back
-  %div
-    %p The line that joins your dots
+      %p= "Last knot created #{time_ago_in_words @knots.first.created_at} ago" if @knots.count > 0
     
 #read
   .toolbar
@@ -30,10 +23,29 @@
   %div
     %ul
       = render :partial => "knot", :collection =>  @knots.read
-                
+
+#new
+  .toolbar
+    %h1 Add Knot
+    %a.button.back{ :href => "#"} Back
+  %div
+    - form_for :knot, :url => knots_path do |form|
+      %ul
+        %li= form.text_field :url,    :placeholder => "url"
+        %li= form.text_field :title,  :placeholder => "title"
+        %li= form.text_area  :summary,:placeholder => "summary text"
+        %li= form.submit "Add", :class => "submit"
+    
 #settings
   .toolbar
     %h1 Settings
     %a.button.cancel{ :href => "#" } Cancel
   %div
-    %ul
+
+#about
+  .toolbar
+    %h1 About
+    %a.button.back{ :href =>"#"} Back
+    %a.button{ :href => "mailto:bru@codewitch.org", :target => "_blank"} Contact
+  %div
+    %p The line that joins your dots

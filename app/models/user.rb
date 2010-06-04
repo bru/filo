@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
                   :use_slug => true, 
                   :max_length => 40 
   
-  has_many :knots
+  has_many :knots, :order => "created_at DESC"
   validates_length_of :nickname, :within => 3..40, :allow_blank => true
   validates_uniqueness_of :nickname, :if => :is_public?
   validates_presence_of :nickname, :if => :is_public?

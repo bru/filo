@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.iphone '/i', :controller => "iphone", :action => "index"
+  
   map.resources :knots, :member => { :skip => :get, :replay => :get, :trash => :get, :read => :get }
     
   map.delete_user "/users/:id/delete", :controller => "users", :action => "destroy"
