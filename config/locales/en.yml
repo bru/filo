@@ -61,6 +61,10 @@ en:
       sign_in: "Sign in"
       sign_up: "Sing up"
       subtitle: "The line that joins your dots"
+    _footer:
+      blurb: "This application has been brought you by <a href='http://chaosncoffee.com'>Bru</a> heavily inspired by <a href='http://marco.org'>Marco</a>'s <a href='http://instapaper.com'>Instapaper</a>"
+      link_home: "Source Code"
+      link_issues: "Issues"
   passwords:
     edit:
       title: "New Password"
@@ -88,7 +92,7 @@ en:
       text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     home:
       title: "Welcome to Filo"
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      text: "You find something interesting that you cannot read just now. We keep it safe and let you access them whenever you want. From your browser, your news reader or your iPhone"
   users:
     _inputs:
       password_confirmation_label: "Confirm Password"
@@ -105,9 +109,11 @@ en:
       password_confirmation_label: "Confirm the new Password"
       public_flag: "Make my profile public"
       public_flag_hint: "This will allow other users to see what you read and planning to read"
+      public_flag_yes: "Yes!"
+      public_flag_no: "No"
       save_button: "Save"
     new:
       title: "Sign up"
       sign_up_button: "Sign up"
     show:
-      title: "{{name}}'s profile"
+      title: "%{name}'s profile"

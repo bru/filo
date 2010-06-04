@@ -22,9 +22,6 @@ it:
     percentage: 
       format: 
         delimiter: ""
-    precision: 
-      format: 
-        delimiter: ""
     currency: 
       format: 
         format: "%n %u"
@@ -34,36 +31,51 @@ it:
         separator: .
         precision: 2
         delimiter: ","
+    precision: 
+      format: 
+        delimiter: ""
+  layouts: 
+    _header: 
+      sign_up: Registrazione
+      sign_in: Accedi
+      sign_out: Esci
+      subtitle: La linea che unisce i tuoi punti
+      hello: Ciao
+      settings: Impostazioni
+    _footer: 
+      link_home: Codice sorgente
+      blurb: "Questo servizio \xC3\xA8 stato creato da <a href='http://chaosncoffee.com'>Bru</a> e largamente ispirato a <a href='http://instapaper.com'>Instapaper</a> di <a href='http://marco.org'>Marco Arment</a>"
+      link_issues: Supporto
   activerecord: 
     errors: 
       messages: 
-        greater_than_or_equal_to: deve essere superiore o uguale a {{count}}
+        greater_than_or_equal_to: deve essere superiore o uguale a %{count}
         record_invalid: ""
         confirmation: non coincide con la conferma
-        less_than_or_equal_to: deve essere meno o uguale a {{count}}
+        less_than_or_equal_to: deve essere meno o uguale a %{count}
         blank: "non pu\xC3\xB2 essere lasciato in bianco"
         invalid: "non \xC3\xA8 valido"
         exclusion: "\xC3\xA8 riservato"
         odd: deve essere dispari
         empty: "non pu\xC3\xB2 essere vuoto"
         even: deve essere pari
-        too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 {{count}} lettere)"
-        wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di {{count}} lettere)"
-        less_than: deve essere meno di {{count}}
-        equal_to: deve essere uguale a {{count}}
-        greater_than: deve essere superiore a {{count}}
+        too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 %{count} lettere)"
+        wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di %{count} lettere)"
+        less_than: deve essere meno di %{count}
+        equal_to: deve essere uguale a %{count}
+        greater_than: deve essere superiore a %{count}
         accepted: deve essere accettata
-        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 {{count}} lettere)"
+        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
         taken: "\xC3\xA8 gi\xC3\xA0 in uso"
         inclusion: "non \xC3\xA8 incluso nella lista"
         not_a_number: "non \xC3\xA8 un numero"
+      full_messages: 
+        format: ""
       template: 
         body: "Per favore ricontrolla i seguenti campi:"
         header: 
-          one: "Non posso salvare questo {{model}}: 1 errore"
-          other: "Non posso salvare questo {{model}}: {{count}} errori."
-      full_messages: 
-        format: ""
+          one: "Non posso salvare questo %{model}: 1 errore"
+          other: "Non posso salvare questo %{model}: %{count} errori."
   knots: 
     new: 
       title: Nuovo
@@ -83,23 +95,23 @@ it:
     index: 
       new_knot_link: Crea nuovo Nodo
       title: i tuoi Nodi
-      unread: Nodi da leggere
       read: Leggi Nodi
+      unread: Nodi da leggere
       trash_count: Cestino
     _actions: 
+      edit: Modifica
       trash: elimina
-      replay: Rileggi
       confirm_trash: Sei sicuro?
-      ago: fa
+      replay: Rileggi
       show: Dettagli
       skip: Rimanda
-      edit: Modifica
+      ago: fa
   controllers: 
     knots: 
-      destroy: 
-        success: "il nodo \xC3\xA8 stato eliminato"
       trash: 
         success: "il noto \xC3\xA8 stato cestinato"
+      destroy: 
+        success: "il nodo \xC3\xA8 stato eliminato"
       replay: 
         success: "il nodo \xC3\xA8 stato segnato come non letto"
       create: 
@@ -114,6 +126,13 @@ it:
       update: 
         failure: "non \xC3\xA8 stato possibile salvare le modifiche"
         success: le modifiche sono state salvate
+  time: 
+    am: am
+    formats: 
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+    pm: pm
   passwords: 
     new: 
       title: Reimposta Password
@@ -126,13 +145,6 @@ it:
       password_confirm_label: Conferma Password
       blurb: "La tua password \xC3\xA8 stata re-inizializzata. Scegline un'altra qui. "
       save_button: Salva questa Password
-  time: 
-    am: am
-    formats: 
-      default: "%a %d %b %Y, %H:%M:%S %z"
-      short: "%d %b %H:%M"
-      long: "%d %B %Y %H:%M"
-    pm: pm
   date: 
     month_names: 
     - 
@@ -195,7 +207,7 @@ it:
       text: ""
     home: 
       title: Benvenuto su Filo
-      text: ""
+      text: "Trova qualcosa di interessante sul web che non hai la possibilit\xC3\xA0 di leggere ora. Filo lo conserver\xC3\xA0 per te con cura, permettendoti di accedere e riprendere la lettura in qualsiasi momento dal browser, dall\\'aggregatore, o dal tuo iPhone."
   support: 
     array: 
       words_connector: ", "
@@ -212,7 +224,9 @@ it:
       password_label: Scegli una nuova Password
       title: Modifica l'account
       password_fieldset: Cambias Password
+      public_flag_hint: Permette agli altri utenti di i nodi che hai letto o intendi leggere
       password_confirmation_label: Conferma la nuova Password
+      public_flag: Rendi pubblico il mio profilo
       save_button: Salva
     destroy: 
       title: Elimina l'account
@@ -220,6 +234,8 @@ it:
       destroy_button: Procedi
       back_link: No! Stavo scherzando!
       blurb: "Attenzione. Se scegli di procedere il tuo account su Filo sar\xC3\xA0 eliminato, assieme a tutti i riferimenti ai Nodi che hai collezionato fino ad ora."
+    show: 
+      title: Il profilo di %{name}
     _inputs: 
       password_confirmation_label: Conferma Password
   datetime: 
@@ -233,39 +249,41 @@ it:
     distance_in_words: 
       less_than_x_minutes: 
         one: meno di un minuto
-        other: meno di {{count}} minuti
+        other: meno di %{count} minuti
       x_days: 
         one: 1 giorno
-        other: "{{count}} giorni"
+        other: "%{count} giorni"
       almost_x_years: 
         one: quasi un anno
-        other: quasi {{count}} anni
+        other: quasi %{count} anni
       x_seconds: 
         one: 1 secondo
-        other: "{{count}} secondi"
+        other: "%{count} secondi"
       about_x_hours: 
         one: circa un'ora
-        other: circa {{count}} ore
+        other: circa %{count} ore
       less_than_x_seconds: 
         one: meno di un secondo
-        other: meno di {{count}} secondi
+        other: meno di %{count} secondi
       x_months: 
         one: 1 mese
-        other: "{{count}} mesi"
+        other: "%{count} mesi"
       x_minutes: 
         one: 1 minuto
-        other: "{{count}} minuti"
+        other: "%{count} minuti"
       about_x_years: 
         one: circa un anno
-        other: circa {{count}} anni
+        other: circa %{count} anni
       about_x_months: 
         one: circa un mese
-        other: circa {{count}} mesi
+        other: circa %{count} mesi
       over_x_years: 
         one: oltre un anno
-        other: oltre {{count}} anni
+        other: oltre %{count} anni
       half_a_minute: mezzo minuto
   sessions: 
     new: 
       sign_in_button: Accedi
       title: Accedi
+      sign_up_link: Registrazione
+      forgotten_password_link: Password dimenticata
