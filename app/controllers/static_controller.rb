@@ -1,6 +1,10 @@
 class StaticController < ApplicationController
   def home
-    redirect_to knots_path if signed_in?
+    if signed_in?
+      redirect_to knots_path 
+    elsif is_iphone_request?
+      redirect_to iphone_path 
+    end
   end
 
   def about
