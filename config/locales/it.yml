@@ -22,6 +22,9 @@ it:
     percentage: 
       format: 
         delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
     currency: 
       format: 
         format: "%n %u"
@@ -31,9 +34,6 @@ it:
         separator: .
         precision: 2
         delimiter: ","
-    precision: 
-      format: 
-        delimiter: ""
   layouts: 
     _header: 
       sign_up: Registrazione
@@ -54,19 +54,19 @@ it:
         confirmation: non coincide con la conferma
         less_than_or_equal_to: deve essere meno o uguale a %{count}
         blank: "non pu\xC3\xB2 essere lasciato in bianco"
-        invalid: "non \xC3\xA8 valido"
         exclusion: "\xC3\xA8 riservato"
+        invalid: "non \xC3\xA8 valido"
         odd: deve essere dispari
-        empty: "non pu\xC3\xB2 essere vuoto"
         even: deve essere pari
         too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 %{count} lettere)"
         wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di %{count} lettere)"
+        empty: "non pu\xC3\xB2 essere vuoto"
         less_than: deve essere meno di %{count}
         equal_to: deve essere uguale a %{count}
         greater_than: deve essere superiore a %{count}
-        accepted: deve essere accettata
         too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
         taken: "\xC3\xA8 gi\xC3\xA0 in uso"
+        accepted: deve essere accettata
         inclusion: "non \xC3\xA8 incluso nella lista"
         not_a_number: "non \xC3\xA8 un numero"
       full_messages: 
@@ -95,14 +95,14 @@ it:
     index: 
       new_knot_link: Crea nuovo Nodo
       title: i tuoi Nodi
-      read: Nodi già letti
       unread: Nodi da leggere
+      read: "Nodi gi\xC3\xA0 letti"
       trash_count: Cestino
     _actions: 
       edit: Modifica
       trash: elimina
-      confirm_trash: Sei sicuro?
       replay: Rileggi
+      confirm_trash: Sei sicuro?
       show: Dettagli
       skip: Rimanda
       ago: fa
@@ -123,6 +123,9 @@ it:
     users: 
       destroy: 
         success: l'utente e tutti i dati ad esso associati sono stati cancellati
+      find_user: 
+        not_found: L'utente che stai cercando non esiste
+        unauthorized: Non hai l'autorizzazione ad accedere ai dati di questo utente
       update: 
         failure: "non \xC3\xA8 stato possibile salvare le modifiche"
         success: le modifiche sono state salvate
@@ -143,8 +146,8 @@ it:
       password_label: Scegli Password
       title: Nuova Password
       password_confirm_label: Conferma Password
-      blurb: "La tua password \xC3\xA8 stata re-inizializzata. Scegline un'altra qui. "
       save_button: Salva questa Password
+      blurb: "La tua password \xC3\xA8 stata re-inizializzata. Scegline un'altra qui. "
   date: 
     month_names: 
     - 
@@ -227,15 +230,20 @@ it:
       public_flag_hint: Permette agli altri utenti di i nodi che hai letto o intendi leggere
       password_confirmation_label: Conferma la nuova Password
       public_flag: Rendi pubblico il mio profilo
+      public_flag_no: "No"
       save_button: Salva
+      public_flag_yes: !binary |
+        U8OsIQ==
+
     destroy: 
-      title: Elimina l'account
       are_you_sure: Sei sicuro?
+      title: Elimina l'account
       destroy_button: Procedi
       back_link: No! Stavo scherzando!
       blurb: "Attenzione. Se scegli di procedere il tuo account su Filo sar\xC3\xA0 eliminato, assieme a tutti i riferimenti ai Nodi che hai collezionato fino ad ora."
     show: 
       title: Il profilo di %{name}
+      blurb: "Non c'\xC3\xA8 molto qui per ora. Tuttavia, puoi vedere i Nodi creati da %{user}"
     _inputs: 
       password_confirmation_label: Conferma Password
   datetime: 
@@ -250,12 +258,12 @@ it:
       less_than_x_minutes: 
         one: meno di un minuto
         other: meno di %{count} minuti
-      x_days: 
-        one: 1 giorno
-        other: "%{count} giorni"
       almost_x_years: 
         one: quasi un anno
         other: quasi %{count} anni
+      x_days: 
+        one: 1 giorno
+        other: "%{count} giorni"
       x_seconds: 
         one: 1 secondo
         other: "%{count} secondi"
@@ -271,12 +279,12 @@ it:
       x_minutes: 
         one: 1 minuto
         other: "%{count} minuti"
-      about_x_years: 
-        one: circa un anno
-        other: circa %{count} anni
       about_x_months: 
         one: circa un mese
         other: circa %{count} mesi
+      about_x_years: 
+        one: circa un anno
+        other: circa %{count} anni
       over_x_years: 
         one: oltre un anno
         other: oltre %{count} anni
