@@ -1,9 +1,9 @@
 class StaticController < ApplicationController
+  before_filter :redirect_if_iphone
+  
   def home
     if signed_in?
       redirect_to knots_path 
-    elsif is_iphone_request?
-      redirect_to iphone_path 
     end
   end
 
@@ -11,6 +11,12 @@ class StaticController < ApplicationController
   end
 
   def contacts
+  end
+  
+  protected
+  
+  def redirect_if_iphone
+    redirect_to iphone_path if is_iphone_request?
   end
 
 end
