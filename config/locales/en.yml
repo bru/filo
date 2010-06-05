@@ -18,10 +18,13 @@ en:
         success: "The knot has been deleted"
     users:
       update:
-        success: "The user has been update"
+        success: "The user has been updated"
         failure: "It was not possible to update the user"
       destroy: 
         success: "The user and all data belonging to him have been deleted"
+      find_user:
+        not_found: "The user you are looking for does not exist"
+        unauthorized: "You are not authorized to see this user's data"
   
   knots:
     _actions:
@@ -117,3 +120,4 @@ en:
       sign_up_button: "Sign up"
     show:
       title: "%{name}'s profile"
+      blurb: "Nothing much to see here. But you can have a glance at the knots in Bru's filo:"
