@@ -19,7 +19,7 @@
 #read
   .toolbar
     %h1 Archive
-    %a.button.back{ :href =>"#"} Back
+    %a.button.back{ :href =>"#home"} Back
   %div
     %ul.read
       = render :partial => "knot", :collection =>  @knots.read
@@ -27,7 +27,7 @@
 #new
   .toolbar
     %h1 Add Knot
-    %a.button.back{ :href => "#"} Back
+    %a.button.back{ :href => "#home"} Back
   %div
     - form_for :knot, :url => knots_path do |form|
       %ul
