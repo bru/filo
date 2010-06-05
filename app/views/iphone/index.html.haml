@@ -1,7 +1,7 @@
 #home
   .toolbar
     %h1 Filo
-    %a.button.flip{ :href => "#settings"} Settings
+    -# %a.button.flip{ :href => "#settings"} Settings
     %a.button.leftButton.slideup{ :href => "#new" } +
   
   %div
@@ -44,8 +44,12 @@
 
 #about
   .toolbar
-    %h1 About
+    %h1 About Filo
     %a.button.back{ :href =>"#"} Back
     %a.button{ :href => "mailto:bru@codewitch.org", :target => "_blank"} Contact
-  %div
-    %p The line that joins your dots
+  %div    
+    .info
+      %p Filo is an application that helps you keep track of those pages in the web you want to eventually read. It is strongly inspired and influenced by <a href="http://marco.org" target="_blank">Marco</a>'s <a href="http://instapaper.com" target="_blank">Instapaper</a>, which I recommend if you're looking for a more "mainstream" and supported app.
+      %p You are now browsing the iPhone version of Filo. This is optimised for small devices and allows you to quickly access your "knots" without hassling you with too many options.
+      %p Filo has been coded by <a href="http://twitter.com/bru" target="_blank">Bru</a> and is proudly hosted on <a href="http://heroku.com" target="_blank">Heroku</a> and is originally an effort of the <a href="http://bzaar.net" target="_blank">Bzaar</a> collective
+    
