@@ -11,9 +11,11 @@ class Knot < ActiveRecord::Base
 
   aasm_event :read do
     transitions :from => :unread, :to => :read
+    transitions :from => :read, :to => :read
   end
   
   aasm_event :unread do
+    transitions :from => :unread, :to => :unread
     transitions :from => :read, :to => :unread
     transitions :form => :trashed, :to => :unread
   end
@@ -21,6 +23,7 @@ class Knot < ActiveRecord::Base
   aasm_event :trash do 
     transitions :from => :unread, :to => :trashed
     transitions :from => :read, :to => :trashed
+    transitions :from => :trashed, :to => :trashed
   end
   
   def human_title

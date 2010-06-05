@@ -5,7 +5,7 @@
     %a.button.leftButton.slideup{ :href => "#new" } +
   
   %div
-    %ul
+    %ul.unread
       = render :partial => "knot", :collection =>  @knots.unread        
 
     %ul.individual
@@ -21,7 +21,7 @@
     %h1 Archive
     %a.button.back{ :href =>"#"} Back
   %div
-    %ul
+    %ul.read
       = render :partial => "knot", :collection =>  @knots.read
 
 #new
