@@ -1,7 +1,7 @@
 %h2= t("users.show.title", :name => @user.nick_or_email)
 
 #profile 
-  %p= t("users.show.blurb")
+  %p= t("users.show.blurb", :user => @user.nick_or_email)
   %h3= t("knots.index.unread")
   %ol.knots.unread
     = render :partial => 'knots/knot', :collection => @user.knots.unread, :locals => { :actions => false}

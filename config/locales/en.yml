@@ -120,4 +120,4 @@ en:
       sign_up_button: "Sign up"
     show:
       title: "%{name}'s profile"
-      blurb: "Nothing much to see here. But you can have a glance at the knots in Bru's filo:"
+      blurb: "Nothing much to see here. But you can have a glance at the knots in %{user}'s filo:"
