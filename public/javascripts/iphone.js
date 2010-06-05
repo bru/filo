@@ -1,6 +1,8 @@
-$.jQTouch({
+var jQT = new $.jQTouch({
         statusBar: 'black-translucent',
-        useFastTouch: false,
+        // icon: false,
+        useFastTouch: true,
+        useAnimations: false,
         preloadImages: [
             '/stylesheets/jqtouch/jqt/img/chevron.png',
             '/stylesheets/jqtouch/jqt/img/back_button.png',
@@ -14,5 +16,4 @@ $(function() {
   $('#home ul.unread li.knot a[target="_blank"]').tap(function() {
     $(this).parent('li').appendTo('#read ul.read');
   });
-
 });

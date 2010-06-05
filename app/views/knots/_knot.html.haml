@@ -1,4 +1,4 @@
 %li{:class => "knot #{cycle("even", "odd")}", :id => "knot-#{knot.id}"}
     = link_to h(knot.human_title), read_knot_path(knot), { :class => "article", :title => h(knot.url) }
     %p.summary= h knot.summary
-    = render :partial => 'actions', :locals => { :knot => knot }
+    = render :partial => 'knots/actions', :locals => { :knot => knot }
