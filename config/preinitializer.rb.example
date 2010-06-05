@@ -1,0 +1,2 @@
++MAIL_USERNAME="user@example.com"
++MAIL_PASSWORD="secret"
