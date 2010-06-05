@@ -95,7 +95,7 @@ it:
     index: 
       new_knot_link: Crea nuovo Nodo
       title: i tuoi Nodi
-      read: Leggi Nodi
+      read: Nodi già letti
       unread: Nodi da leggere
       trash_count: Cestino
     _actions: 
