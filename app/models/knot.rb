@@ -2,6 +2,9 @@ class Knot < ActiveRecord::Base
   include AASM
   belongs_to :user
   
+  validates_length_of :summary, :within => 0..160, :allow_blank => true
+  validates_length_of :title, :within => 0..128, :allow_blank => true  
+  
   aasm_initial_state :unread
   aasm_column :state
   

@@ -9,13 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100601112703) do
+ActiveRecord::Schema.define(:version => 20100605150120) do
 
   create_table "knots", :force => true do |t|
     t.string   "url"
-    t.text     "summary"
-    t.string   "title"
-    t.string   "state"
+    t.string   "summary",      :limit => 160
+    t.string   "title",        :limit => 128
+    t.string   "state",        :limit => 16
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20100601112703) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email"
+    t.string   "email",              :limit => 128
     t.string   "encrypted_password", :limit => 128
     t.string   "salt",               :limit => 128
     t.string   "confirmation_token", :limit => 128
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(:version => 20100601112703) do
     t.boolean  "email_confirmed",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "nickname"
-    t.string   "language"
-    t.string   "cached_slug"
+    t.string   "nickname",           :limit => 40
+    t.string   "language",           :limit => 6
+    t.string   "cached_slug",        :limit => 40
     t.boolean  "public_flag"
   end
 
