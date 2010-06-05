@@ -17,3 +17,4 @@ public/words/*
 public/test.html
 rerun.txt
 config/locales/log/*
+config/initializers/mailer.rb
