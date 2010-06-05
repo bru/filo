@@ -7,7 +7,6 @@ class SessionsController < Clearance::SessionsController
       if request.xhr?
         render :template => 'iphone/login_error', :layout => false
       else
-        format.html
         flash_failure_after_create
         render :template => 'sessions/new', :status => :unauthorized
       end
