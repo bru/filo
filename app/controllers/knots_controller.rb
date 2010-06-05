@@ -46,7 +46,7 @@ class KnotsController < ApplicationController
     respond_to do |format|
       if @knot.save
         flash[:notice] = I18n.t('controllers.knots.create.success')
-        format.html { redirect_to(knots_path) }
+        format.html { redirect_to(request.xhr? ? iphone_path : knots_path) }
         format.xml  { render :xml => @knot, :status => :created, :location => @knot }
       else
         format.html { render :action => "new" }
