@@ -2,9 +2,9 @@
 = link_to t("knots.index.new_knot_link"), new_knot_path
 %h2= t("knots.index.unread")
 %ol.knots.unread
-  = render :partial => 'knot', :collection => @knots.unread
+  = render :partial => 'knot', :collection => @knots.unread, :locals => { :actions => true }
 %h2= t("knots.index.read")
 %ol.knots.read
-  = render :partial => 'knot', :collection => @knots.read
+  = render :partial => 'knot', :collection => @knots.read, :locals => { :actions => true }
 #trashcan
   = t("knots.index.trash_count")

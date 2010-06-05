@@ -3,6 +3,6 @@
 #profile 
   %p= t("users.show.blurb")
   %ol.knots.unread
-    = render :partial => 'knots/knot', :collection => @user.knots.unread
+    = render :partial => 'knots/knot', :collection => @user.knots.unread, :locals => { :actions => false}
   %ol.knots.read
-    = render :partial => 'knots/knot', :collection => @user.knots.read
+    = render :partial => 'knots/knot', :collection => @user.knots.read, :locals => { :actions => false}
