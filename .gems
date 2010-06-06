@@ -3,7 +3,7 @@ pg
 haml -v '3.0.9'
 clearance
 formtastic --ignore-dependencies
-i18n
+i18n -v '0.3.6'
 webrat
 rspec
 rspec-rails
