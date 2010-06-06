@@ -33,6 +33,8 @@ ActionMailer::Base.smtp_settings = {
   :authentication  => :login
 }
 
+# Application domain
+FILO_HOST = "filo2.heroku.com"
 
 # Enable threaded mode
 # config.threadsafe!

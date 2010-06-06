@@ -41,6 +41,10 @@ en:
       title: "Edit Knot"
       back_link: "Back"
     index:
+      or_bookmarklet_intro: or use the 
+      bookmarklet_name: Filo it!
+      bookmarklet_hint: Drag me in your bookmark bar!
+      bookmarklet: bookmarklet
       title: "Your Knots"
       new_knot_link: "Create New Knot"
       unread: "Unread Knots"

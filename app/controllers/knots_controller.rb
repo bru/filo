@@ -1,6 +1,6 @@
 class KnotsController < ApplicationController
   before_filter :authenticate
-  before_filter :find_and_require_owner, :except => [:index, :show, :new, :create]
+  before_filter :find_and_require_owner, :except => [:index, :new, :show,:create]
   
   # GET /knots
   # GET /knots.xml
@@ -27,9 +27,9 @@ class KnotsController < ApplicationController
   # GET /knots/new.xml
   def new
     @knot = Knot.new
-
+    
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render :layout => (params[:remote] ? false : true)}
       format.xml  { render :xml => @knot }
     end
   end
@@ -41,14 +41,23 @@ class KnotsController < ApplicationController
   # POST /knots
   # POST /knots.xml
   def create
-    @knot = current_user.knots.build(params[:knot])
+    @knot = current_user.knots.find_or_initialize_by_url(params[:u] || params[:knot][:url])
+    @knot.update_attributes( params[:remote] ? { :title   =>params[:t],
+                                                 :summary => params[:s] } : params[:knot])
 
     respond_to do |format|
       if @knot.save
         flash[:notice] = I18n.t('controllers.knots.create.success')
-        format.html { redirect_to(request.xhr? ? iphone_path : knots_path) }
+        format.html do
+          if params[:remote]
+            render :layout => "bookmarklet"
+          else
+            redirect_to(request.xhr? ? iphone_path : knots_path)
+          end
+        end
         format.xml  { render :xml => @knot, :status => :created, :location => @knot }
       else
+        flash[:alert] = I18n.t('controllers.knots.create.failure')
         format.html { render :action => "new" }
         format.xml  { render :xml => @knot.errors, :status => :unprocessable_entity }
       end
@@ -126,4 +135,5 @@ protected
   rescue ActiveRecord::RecordNotFound
     deny_action( I18n.t("controllers.knots.require_owner.denied") )
   end
+  
 end

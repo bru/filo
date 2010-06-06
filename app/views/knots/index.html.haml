@@ -1,10 +1,13 @@
 %h1= t("knots.index.title")
-= link_to t("knots.index.new_knot_link"), new_knot_path
+%p
+  = link_to t("knots.index.new_knot_link"), new_knot_path
+  =t (".or_bookmarklet_intro")
+  = link_to t(".bookmarklet_name"), bookmarklet, { :title => t(".bookmarklet_hint"), :onclick => "alert('" + t(".bookmarklet_hint") + "')" }
+  =t (".bookmarklet")
 %h2= t("knots.index.unread")
 %ol.knots.unread
   = render :partial => 'knot', :collection => @knots.unread, :locals => { :actions => true }
 %h2= t("knots.index.read")
 %ol.knots.read
   = render :partial => 'knot', :collection => @knots.read, :locals => { :actions => true }
-#trashcan
-  = t("knots.index.trash_count")
+

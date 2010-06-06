@@ -41,3 +41,4 @@ config.gem 'thoughtbot-shoulda',
              :source => 'http://gems.github.com'
              
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+FILO_HOST = "localhost:3000"
