@@ -8,11 +8,8 @@ class IphoneController < ApplicationController
       render :layout => iphone_layout
     else
       store_location
-      render :action => "login", :controller => "iphone"
+      render :template => "/iphone/signin"
     end
-  end
-  
-  def login
   end
 
   protected 

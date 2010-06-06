@@ -22,9 +22,6 @@ it:
     percentage: 
       format: 
         delimiter: ""
-    precision: 
-      format: 
-        delimiter: ""
     currency: 
       format: 
         format: "%n %u"
@@ -34,6 +31,9 @@ it:
         separator: .
         precision: 2
         delimiter: ","
+    precision: 
+      format: 
+        delimiter: ""
   layouts: 
     _header: 
       sign_up: Registrazione
@@ -51,31 +51,31 @@ it:
       messages: 
         greater_than_or_equal_to: deve essere superiore o uguale a %{count}
         record_invalid: ""
-        confirmation: non coincide con la conferma
         less_than_or_equal_to: deve essere meno o uguale a %{count}
+        confirmation: non coincide con la conferma
         blank: "non pu\xC3\xB2 essere lasciato in bianco"
         exclusion: "\xC3\xA8 riservato"
         invalid: "non \xC3\xA8 valido"
         odd: deve essere dispari
-        even: deve essere pari
         too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 %{count} lettere)"
         wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di %{count} lettere)"
         empty: "non pu\xC3\xB2 essere vuoto"
+        even: deve essere pari
         less_than: deve essere meno di %{count}
         equal_to: deve essere uguale a %{count}
         greater_than: deve essere superiore a %{count}
-        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
         taken: "\xC3\xA8 gi\xC3\xA0 in uso"
         accepted: deve essere accettata
-        inclusion: "non \xC3\xA8 incluso nella lista"
+        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
         not_a_number: "non \xC3\xA8 un numero"
-      full_messages: 
-        format: ""
+        inclusion: "non \xC3\xA8 incluso nella lista"
       template: 
         body: "Per favore ricontrolla i seguenti campi:"
         header: 
           one: "Non posso salvare questo %{model}: 1 errore"
           other: "Non posso salvare questo %{model}: %{count} errori."
+      full_messages: 
+        format: ""
   knots: 
     new: 
       title: Nuovo
@@ -83,8 +83,6 @@ it:
     edit: 
       title: Modifica Nodo
       back_link: Indietro
-    _form: 
-      url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
     show: 
       url_label: URL
       title_label: Titolo
@@ -92,18 +90,24 @@ it:
       state_label: Stato
       edit_link: Modifica
       back_link: Indietro
+    _form: 
+      url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
     index: 
       new_knot_link: Crea nuovo Nodo
       title: i tuoi Nodi
+      bookmarklet_hint: trascinami nella barra dei bookmark!
       unread: Nodi da leggere
       read: "Nodi gi\xC3\xA0 letti"
+      bookmarklet: bookmarklet
+      or_bookmarklet_intro: "o usa il "
+      bookmarklet_name: Filo!
       trash_count: Cestino
     _actions: 
       edit: Modifica
       trash: elimina
-      replay: Rileggi
-      confirm_trash: Sei sicuro?
       show: Dettagli
+      confirm_trash: Sei sicuro?
+      replay: Rileggi
       skip: Rimanda
       ago: fa
   controllers: 
@@ -146,8 +150,8 @@ it:
       password_label: Scegli Password
       title: Nuova Password
       password_confirm_label: Conferma Password
-      save_button: Salva questa Password
       blurb: "La tua password \xC3\xA8 stata re-inizializzata. Scegline un'altra qui. "
+      save_button: Salva questa Password
   date: 
     month_names: 
     - 
@@ -267,6 +271,9 @@ it:
       x_seconds: 
         one: 1 secondo
         other: "%{count} secondi"
+      x_minutes: 
+        one: 1 minuto
+        other: "%{count} minuti"
       about_x_hours: 
         one: circa un'ora
         other: circa %{count} ore
@@ -276,9 +283,6 @@ it:
       x_months: 
         one: 1 mese
         other: "%{count} mesi"
-      x_minutes: 
-        one: 1 minuto
-        other: "%{count} minuti"
       about_x_months: 
         one: circa un mese
         other: circa %{count} mesi

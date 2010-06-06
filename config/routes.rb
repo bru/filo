@@ -2,8 +2,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.iphone '/i', :controller => "iphone", :action => "index"
   
+  map.addknot "/a", :controller => "knots", :action => "create", :remote => true  
   map.resources :knots, :member => { :skip => :get, :replay => :get, :trash => :get, :read => :get }
-  map.addknot "/a", :controller => "knots", :action => "create", :remote => true
+
   map.delete_user "/users/:id/delete", :controller => "users", :action => "destroy"
   map.resources :users, :controller => 'users' do |users|
     users.resource  :password, 
@@ -14,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
       :controller => 'confirmations',
       :only       => [:new, :create]
   end
+
   map.resource :session, :controller => 'sessions', :only => [:new, :create, :destroy]
   Clearance::Routes.draw(map)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -56,6 +58,6 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
   Translate::Routes.translation_ui(map) if RAILS_ENV == "development"
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
 end

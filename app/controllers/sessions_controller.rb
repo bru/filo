@@ -5,7 +5,7 @@ class SessionsController < Clearance::SessionsController
                                 params[:session][:password])
     if @user.nil?
       if request.xhr?
-        render :template => 'iphone/login_error', :layout => false
+        render :template => 'iphone/signin_error', :layout => false
       else
         flash_failure_after_create
         render :template => 'sessions/new', :status => :unauthorized

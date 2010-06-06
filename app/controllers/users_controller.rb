@@ -15,6 +15,24 @@ class UsersController < Clearance::UsersController
   def edit
   end
   
+  def create
+    @user = ::User.new params[:user]
+    if @user.save
+      if request.xhr?
+        render :template => 'iphone/signup_success', :layout => false
+      else
+        flash_notice_after_create
+        redirect_to(url_after_create)
+      end
+    else
+      if request.xhr?
+        render :template => 'iphone/signup_error', :layout => false
+      else
+        render :template => 'users/new'
+      end
+    end
+  end
+  
   def update
     if @user.update_attributes(params[:user])
       flash[:notice] = I18n.t('controllers.users.update.success')
