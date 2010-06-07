@@ -1,8 +1,8 @@
-#header
-  #usermenu
-    = render :partial => '/layouts/user_nav'
-  #logo
-    %h1
+#usermenu
+  = render :partial => '/layouts/user_nav'
+#logo
+  %h1
+    %a{ :href=> root_path }
       Filo
       %span#dot0.dot .
       %span#dot1.dot .
@@ -10,4 +10,4 @@
       %span#dot3.dot .
       %span#dot4.dot .
       %span#dot5.dot .
-    %span#subtitle= t "layouts._header.subtitle"
+  %span#subtitle= t "layouts._header.subtitle"

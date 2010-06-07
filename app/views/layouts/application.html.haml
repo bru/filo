@@ -5,10 +5,18 @@
       Filo :: #{beautify_title}
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
     %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-    = stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes'
+    = stylesheet_link_tag 'reset', 'default', 'application', 'formtastic', 'formtastic_changes'
+    /[if gte IE 7]
+      <link rel="stylesheet" href="stylesheets/ie7.css" type="text/css" media="screen" />
+    /[if lte IE 6]
+      <link rel="stylesheet" href="stylesheets/ie6.css" type="text/css" media="screen" />
+    
   %body
-    #container
-      = render :partial => 'layouts/header'
+    #wrapper
+      #header
+        = render :partial => 'layouts/header'
       = flash_messages
-      = yield
-      = render :partial => 'layouts/footer'
+      #content
+        = yield
+      #footer
+        = render :partial => 'layouts/footer'

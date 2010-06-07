@@ -19,4 +19,8 @@ module ApplicationHelper
      encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text)).replace(/ /g,'+')+
      '&u='+encodeURIComponent(document.location.href)+'&t='+encodeURIComponent(document.title)+'','Filo-ing...','toolbar=0,resizable=0,status=1,width=400,height=120');void(0)"
     end
+    
+    def show_visitor_links?
+      ![sign_in_path, sign_up_path].include? request.path
+    end
 end

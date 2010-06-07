@@ -8,11 +8,11 @@
     = link_to t("layouts._header.sign_out"), sign_out_path
     ?
 - else
-  - unless (params[:controller] == "static" && params[:action] == "index") 
+  - if (show_visitor_links?) 
     %span= link_to t("layouts._header.sign_in"), sign_in_path()
     %span= link_to t("layouts._header.sign_up"), sign_up_path()
     \&bull;
-    %span
-      [#{link_to "en", { :locale => "en"}, { :title => t("Set language to English") }}]
-    %span
-      [#{link_to "it", { :locale => "it"}, { :title => t("Set language to Italian")}}]
+  %span
+    [#{link_to "en", { :locale => "en"}, { :title => t("Set language to English") }}]
+  %span
+    [#{link_to "it", { :locale => "it"}, { :title => t("Set language to Italian")}}]

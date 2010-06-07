@@ -1,0 +1,141 @@
+/* Default Styles
+----------------------------------------------------*/
+/* 
+1 Main
+2 Wrappers
+3 Text Formating   
+4 Data tables
+5 Forms
+6 Boxes,grids,lists and columns
+7 Clearing 
+8 Custom
+*/
+/* --------------------------------- */
+/* =Main */
+/* -------------------------------- */
+/* 
+=removes scrollbars from reduced width heights
+html {overflow:-moz-scrollbars-vertical;}
+*/
+html {font-size:100.01%;} /*This eliminates most size inheritance errors in IE*/
+body {text-align:center;/* centering for older browsers*/
+background-color:#f6f6f6;
+font-size:62.5%;color:#333333;font-family:Verdana,Arial,Helvetica,sans-serif;/* font-family:Georgia,"Times New Roman",Times,serif;*/}
+
+/* --------------------------------- */
+/* =Wrappers */
+/* -------------------------------- */
+#wrapper, #header, #content, #footer {position:relative;}
+#wrapper {width:980px;margin:0 auto;text-align:left;background-color:#fff;font-weight:normal;overflow:hidden;}
+#content {margin:0 10px;overflow:hidden;} /* total available width = 960px */
+
+/* --------------------------------- */
+/* =Text Formating */
+/* -------------------------------- */
+
+p {line-height:1.5em;font-size:1.4em;padding:0 0 1.5em 0;}    
+/*font size:14px line-height:19px margin-bottom:19px*/
+
+a {font-weight:normal;text-decoration:none;}
+a:link {color:#c00;}
+a:visited {color:#666;}
+a:hover,a.selected {color:#333;}
+/*link styles should be in the order LVHA*/
+
+p img {padding: 0;max-width: 100%;}
+acronym, abbr, span.caps {cursor: help;}
+acronym, abbr {border-bottom: 1px dashed #999;}
+strong {font-weight:bold;}
+em {font-style:italic;}    
+
+/*Headers*/
+h1, h2, h3, h4, h5, h6{font-weight:normal;margin:0;line-height:1em;}
+h1{font-size:2em;}  /* displayed at 20px */
+h2{font-size:1.7em;} /* displayed at 17px */ 
+h3{font-size:1.5em;} /* displayed at 15px */
+h4{font-size:1.2em;}  /* displayed at 12px */
+h5,h6{font-size:1em;}  /* displayed at 10px */
+
+.tx-l {text-align:left;}
+.tx-c {text-align:center;}
+.tx-r {text-align:right;}
+
+/*floats*/
+.left {float:left;display:inline;} /*display inline avoids double float margin bug in IE*/
+.right {float:right;display:inline;}
+
+.v-space {margin-top:1.5em;}
+
+ul li,ol li {line-height:1.5em;font-size:1.4em;margin:0 0 0 21px;list-style-type: disc;}  
+
+hr {border:none 0;border-top:1px solid #ccc;height:1px;clear:both;margin-top:14px;}
+
+.tiny {font-size:10px;} 
+.small {font-size:11px;} 
+.normal {font-size:14px;}
+.large {font-size:18px;} 
+
+.first {margin-left:0 !important;}
+.last {margin-right:0 !important;}
+.top {margin-top:0 !important;}
+.bottom {margin-bottom:0 !important;}
+
+.hide, .hidden, .print {display:none;}   
+
+.graphic {margin:0;padding:0;display:block;overflow:hidden;text-indent:-8000px;}
+
+.rel {position:relative;}
+img {border:none;display:block;} /*display block to avoid IE6 whitespace on inline elements due to baseline spacing (for descender space),i.e. images*/
+img.center {display:block;margin:0 auto 5px;}   
+
+.no_margin {margin:0}
+.inline {display:inline;} /*used to fix IE6 double margin bugs*/
+.highlight {color:#c00;}
+.button {overﬂow:visible;display:block;}
+
+.pb10  {padding-bottom:10px;}
+.pb14  {padding-bottom:14px;}
+.pb21  {padding-bottom:21px;}
+
+/*fixes many IE bugs for buttons*/
+.skipto, #skipnav {position:absolute;top:0;left:-100000px;width:0;height:0;overflow:hidden;}
+
+/*
+=Data tables
+*/
+table {margin:0 0 1.5em;border-collapse:separate;border-spacing:0;border-bottom:1px solid #ccc;}
+caption {margin:0;padding:0.5em 0;font-weight:bold;text-align:left;}
+th {font-weight:bold}
+th,
+td {padding:0.25em 0.5em 0.25em 0;border-top:1px solid #ccc;vertical-align:top;text-align:left;font-size:1.4em;}
+
+
+/*columns & rows*/                        
+.row {width:100%;}                                                                     
+
+/* ---------------------------------------- */
+/* =Boxes,grids,lists and columns */
+/* ---------------------------------------- */
+.grids:after {content:".";display:block;height:0;clear:both;visibility:hidden;}
+* html .grids {height:1%;} /*to avoid ie6 miscalcuating an elements height (if block level) due to caching previous content height*/
+.grids {display:inline-block;}
+.grids {display:block;margin:0;}
+.grids .unit_sm,.grids .unit_lg {float:left;overflow:hidden;display:inline;margin:0 0 0 30px;}
+.grids .unit_sm {width:175px;}
+.grids .unit_lg {width:285px;}
+.grids .unit_half {width:48%;margin-left:1.895%;float:left;overflow:hidden;display:inline;}
+.grids .unit_third {width:31.2%;margin-left:1%;float:left;overflow:hidden;display:inline;}
+.grids .first {margin:0;}  
+
+/* -------------------- */
+/* =Clearing */
+/* ------------------ */
+.clear {clear:both;line-height:0px;font-size:0px;height:0px;padding:0px;margin:0px;border:none;}
+/* Clearfix */
+.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+* html .clearfix {zoom:1;}
+/* IE6 */
+*:first-child+html .clearfix {zoom:1;}
+/* IE7 */
+.clr {overflow:hidden;/*method for clearing floats*/}
+
