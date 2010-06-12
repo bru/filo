@@ -23,7 +23,7 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'i18n'
   config.gem 'aasm'
-  config.gem 'haml', :version => "3.0.9"
+  config.gem 'haml', :version => "3.0.12"
   config.gem "friendly_id", :version => "~> 2.3"
   config.gem "stringex"
   

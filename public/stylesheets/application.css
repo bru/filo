@@ -1,5 +1,11 @@
+/* generic */
+
 html, body {
 	height: 100%;
+}
+
+body {
+	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 #wrapper {
 	padding: 0 20px;
@@ -8,25 +14,122 @@ html, body {
 	position: relative;
 }
 
+
+#content {
+	padding-bottom: 80px;
+	margin: 0;
+}
+
+
+a:link {color: #9F78D8;}
+a:visited {color:#411D77;}
+a:hover,a.selected {color:#7D88D9;}
+
+
+h3 {
+	font-weight: normal;
+	margin: 1em 0;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 1.8em;
+	margin-bottom: 1em;
+}
+
+#content p {
+	padding-bottom: 1em;
+}
+
+
+
+/* header */
 #usermenu {
 	float: right
 }
 
 #header {
-	margin: 5px 0;
+	margin: 5px 0 25px;
 }
 
-#header #logo {
+#logo {
 	margin: 5px auto;
+	font-variant: small-caps;
 }
 
-#content {
-	padding-bottom: 40px;
+#logo h1 {
+	font: small-caps 3em Georgia, "Times New Roman", Times, serif;
 }
+
+#subtitle{
+	font-size: 1.4em;
+}
+
+#flash {
+	font-size: 1.2em;
+}
+#flash_success, #flash_warning, #flash_alert, #flash_error, #flash_failure {
+	padding: 10px;
+}
+#flash_success {
+	color: green;
+}
+
+#flash_warning {
+	color: orange;
+}
+
+#flash_error, #flash_alert, #flash_failure {
+	color: red;
+}
+
+/* footer */
 
 #footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 60px;
+	text-align: center;
+	border-top: 1px solid #000;
 }
+
+#footer p {
+	font-size: 1.2em;
+	padding-bottom: 0.4em;
+}
+
+/* home page */
+
+ol.about li {
+	list-style-type: decimal;
+}
+
+/* knots */
+
+ol.knots li {
+	list-style-type: none;
+	list-style-position: inside;
+	opacity: 1;
+	margin-left: 0;
+	padding: 10px 5px 5px;
+	
+}
+
+ol.knots li.even {
+	background-color: #fcfcfc;
+}
+
+ol.knots li p {
+	font-size: 0.9em;
+	color: #666;
+	line-height: 1.1em;
+	padding: 0.5em 0 1em;
+	font-style: italic;
+}
+
+ol.knots li .actions {
+	font-size: 0.8em;
+}
+
+

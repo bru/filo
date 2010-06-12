@@ -28,6 +28,7 @@ en:
   
   knots:
     _actions:
+      last_read_at: "last played"
       ago: "ago"
       replay: "replay"
       trash: "trash"
@@ -52,7 +53,7 @@ en:
       trash_count: "Trash"
     new:
       title: "New Knot"
-      back_link: "Back"
+      back_link: "back to knot list"
     show:
       url_label: "URL"
       summary_label: "Summary"
@@ -88,8 +89,10 @@ en:
     new:
       title: "Sign in"
       sign_in_button: "Sign in"
+      sign_up_text: "If you don't have an account yet, "
       sign_up_link: "Sign up"
-      forgotten_password_link: "Forgotten password"
+      forgotten_password_text: "If you forgot your password, "
+      forgotten_password_link: "reset your password now"
   static:
     about:
       title: "About Filo"
@@ -122,6 +125,8 @@ en:
     new:
       title: "Sign up"
       sign_up_button: "Sign up"
+      or: "or"
+      cancel: "cancel"
     show:
       title: "%{name}'s profile"
       blurb: "Nothing much to see here. But you can have a glance at the knots in %{user}'s filo:"

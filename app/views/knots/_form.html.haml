@@ -3,4 +3,8 @@
     = f.input :url, :hint => t("knots._form.url_hint")
     = f.input :title
     = f.input :summary
-  = f.buttons
+  - f.buttons do
+    = f.commit_button
+    %p 
+      = t("users.new.or")
+      = link_to t("knots.new.back_link"), knots_path

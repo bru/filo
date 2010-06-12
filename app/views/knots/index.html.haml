@@ -4,10 +4,10 @@
   =t (".or_bookmarklet_intro")
   = link_to t(".bookmarklet_name"), bookmarklet, { :title => t(".bookmarklet_hint"), :onclick => "alert('" + t(".bookmarklet_hint") + "')" }
   =t (".bookmarklet")
-%h2= t("knots.index.unread")
+%h3= t("knots.index.unread")
 %ol.knots.unread
   = render :partial => 'knot', :collection => @knots.unread, :locals => { :actions => true }
-%h2= t("knots.index.read")
+%h3= t("knots.index.read")
 %ol.knots.read
   = render :partial => 'knot', :collection => @knots.read, :locals => { :actions => true }
 

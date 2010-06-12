@@ -5,8 +5,9 @@
     = form.input :password, :as => :password
   - form.buttons do
     = form.commit_button t("sessions.new.sign_in_button")
-%ul
-  %li
-    = link_to t("sessions.new.sign_up_link"), sign_up_path
-  %li
-    = link_to t("sessions.new.forgotten_password_link"), new_password_path
+%p
+  = t("sessions.new.sign_up_text")
+  = link_to t("sessions.new.sign_up_link"), sign_up_path
+%p
+  = t("sessions.new.forgotten_password_text")
+  = link_to t("sessions.new.forgotten_password_link"), new_password_path

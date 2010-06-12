@@ -8,6 +8,7 @@
       \#{link_to t("knots._actions.skip"), skip_knot_path(knot)}
       \#{link_to t("knots._actions.edit"), edit_knot_path(knot)}
     - else
+      = t "knots._actions.last_read_at"
       = time_ago_in_words(knot.last_read_at) unless knot.last_read_at.nil?
       = t "knots._actions.ago"
       \&bull;

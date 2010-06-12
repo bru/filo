@@ -4,3 +4,6 @@
   = render :partial => "/users/inputs", :locals => { :form => form }
   - form.buttons do
     = form.commit_button t("users.new.sign_up_button")
+    %p
+      = t("users.new.or")
+      = link_to t("users.new.cancel"), root_path
