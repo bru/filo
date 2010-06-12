@@ -36,12 +36,12 @@ it:
         delimiter: ""
   layouts: 
     _header: 
-      sign_up: Registrazione
       sign_in: Accedi
+      sign_up: Registrazione
       sign_out: Esci
       subtitle: La linea che unisce i tuoi punti
-      hello: Ciao
       settings: Impostazioni
+      hello: Ciao
     _footer: 
       link_home: Codice sorgente
       blurb: "Questo servizio \xC3\xA8 stato creato da <a href='http://chaosncoffee.com'>Bru</a> e largamente ispirato a <a href='http://instapaper.com'>Instapaper</a> di <a href='http://marco.org'>Marco Arment</a>"
@@ -51,31 +51,31 @@ it:
       messages: 
         greater_than_or_equal_to: deve essere superiore o uguale a %{count}
         record_invalid: ""
-        less_than_or_equal_to: deve essere meno o uguale a %{count}
         confirmation: non coincide con la conferma
+        less_than_or_equal_to: deve essere meno o uguale a %{count}
         blank: "non pu\xC3\xB2 essere lasciato in bianco"
         exclusion: "\xC3\xA8 riservato"
         invalid: "non \xC3\xA8 valido"
         odd: deve essere dispari
+        even: deve essere pari
         too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 %{count} lettere)"
         wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di %{count} lettere)"
         empty: "non pu\xC3\xB2 essere vuoto"
-        even: deve essere pari
         less_than: deve essere meno di %{count}
         equal_to: deve essere uguale a %{count}
         greater_than: deve essere superiore a %{count}
+        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
         taken: "\xC3\xA8 gi\xC3\xA0 in uso"
         accepted: deve essere accettata
-        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
-        not_a_number: "non \xC3\xA8 un numero"
         inclusion: "non \xC3\xA8 incluso nella lista"
+        not_a_number: "non \xC3\xA8 un numero"
+      full_messages: 
+        format: ""
       template: 
         body: "Per favore ricontrolla i seguenti campi:"
         header: 
           one: "Non posso salvare questo %{model}: 1 errore"
           other: "Non posso salvare questo %{model}: %{count} errori."
-      full_messages: 
-        format: ""
   knots: 
     new: 
       title: Nuovo
@@ -83,6 +83,8 @@ it:
     edit: 
       title: Modifica Nodo
       back_link: Indietro
+    _form: 
+      url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
     show: 
       url_label: URL
       title_label: Titolo
@@ -90,8 +92,6 @@ it:
       state_label: Stato
       edit_link: Modifica
       back_link: Indietro
-    _form: 
-      url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
     index: 
       new_knot_link: Crea nuovo Nodo
       title: i tuoi Nodi
@@ -99,26 +99,28 @@ it:
       unread: Nodi da leggere
       read: "Nodi gi\xC3\xA0 letti"
       bookmarklet: bookmarklet
-      or_bookmarklet_intro: "o usa il "
       bookmarklet_name: Filo!
+      or_bookmarklet_intro: "o usa il "
       trash_count: Cestino
     _actions: 
       edit: Modifica
       trash: elimina
-      show: Dettagli
       confirm_trash: Sei sicuro?
       replay: Rileggi
+      show: Dettagli
       skip: Rimanda
       ago: fa
+      last_read_at: "Letto l'ultima volta "
   controllers: 
     knots: 
-      trash: 
-        success: "il noto \xC3\xA8 stato cestinato"
       destroy: 
         success: "il nodo \xC3\xA8 stato eliminato"
+      trash: 
+        success: "il noto \xC3\xA8 stato cestinato"
       replay: 
         success: "il nodo \xC3\xA8 stato segnato come non letto"
       create: 
+        failure: "Ops, qualcosa \xC3\xA8 andato storto"
         success: "Il nodo \xC3\xA8 stato creato"
       skip: 
         success: "il nodo \xC3\xA8 stato segnato come gi\xC3\xA0 letto"
@@ -167,6 +169,10 @@ it:
     - Ottobre
     - Novembre
     - Dicembre
+    order: 
+    - :day
+    - :month
+    - :year
     abbr_day_names: 
     - Dom
     - Lun
@@ -175,10 +181,6 @@ it:
     - Gio
     - Ven
     - Sab
-    order: 
-    - :day
-    - :month
-    - :year
     formats: 
       default: "%d-%m-%Y"
       short: "%d %b"
@@ -227,6 +229,8 @@ it:
     new: 
       sign_up_button: Iscriviti
       title: Iscriviti
+      cancel: annulla
+      or: o
     edit: 
       password_label: Scegli una nuova Password
       title: Modifica l'account
@@ -243,13 +247,21 @@ it:
       are_you_sure: Sei sicuro?
       title: Elimina l'account
       destroy_button: Procedi
-      back_link: No! Stavo scherzando!
       blurb: "Attenzione. Se scegli di procedere il tuo account su Filo sar\xC3\xA0 eliminato, assieme a tutti i riferimenti ai Nodi che hai collezionato fino ad ora."
+      back_link: No! Stavo scherzando!
     show: 
       title: Il profilo di %{name}
       blurb: "Non c'\xC3\xA8 molto qui per ora. Tuttavia, puoi vedere i Nodi creati da %{user}"
     _inputs: 
       password_confirmation_label: Conferma Password
+  sessions: 
+    new: 
+      sign_in_button: Accedi
+      title: Accedi
+      forgotten_password_text: "Se hai dimenticato la password, "
+      sign_up_text: "Se non hai ancora creato un account, "
+      sign_up_link: Registrazione
+      forgotten_password_link: Password dimenticata
   datetime: 
     prompts: 
       minute: Minuto
@@ -262,18 +274,15 @@ it:
       less_than_x_minutes: 
         one: meno di un minuto
         other: meno di %{count} minuti
-      almost_x_years: 
-        one: quasi un anno
-        other: quasi %{count} anni
       x_days: 
         one: 1 giorno
         other: "%{count} giorni"
+      almost_x_years: 
+        one: quasi un anno
+        other: quasi %{count} anni
       x_seconds: 
         one: 1 secondo
         other: "%{count} secondi"
-      x_minutes: 
-        one: 1 minuto
-        other: "%{count} minuti"
       about_x_hours: 
         one: circa un'ora
         other: circa %{count} ore
@@ -283,19 +292,16 @@ it:
       x_months: 
         one: 1 mese
         other: "%{count} mesi"
-      about_x_months: 
-        one: circa un mese
-        other: circa %{count} mesi
+      x_minutes: 
+        one: 1 minuto
+        other: "%{count} minuti"
       about_x_years: 
         one: circa un anno
         other: circa %{count} anni
+      about_x_months: 
+        one: circa un mese
+        other: circa %{count} mesi
       over_x_years: 
         one: oltre un anno
         other: oltre %{count} anni
       half_a_minute: mezzo minuto
-  sessions: 
-    new: 
-      sign_in_button: Accedi
-      title: Accedi
-      sign_up_link: Registrazione
-      forgotten_password_link: Password dimenticata
