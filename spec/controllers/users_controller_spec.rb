@@ -12,12 +12,6 @@ describe UsersController do
       @user = Factory(:email_confirmed_user)
       @controller.current_user = @user
     end
-    describe "GET 'destroy'" do
-      it "should be successful" do
-        get 'destroy'
-        response.should be_success
-      end
-    end
   
     describe "DELETE 'destroy'" do
       it "should be successful" do
@@ -33,11 +27,5 @@ describe UsersController do
   end
   
   describe "when signed out" do
-    describe "GET 'destroy'" do
-      it "should redirect" do
-        get 'destroy'
-        response.should be_redirect
-      end
-    end
   end
 end

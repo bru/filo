@@ -47,28 +47,31 @@ describe KnotsController do
     describe "POST create" do
 
       describe "with valid params" do
+        before :each do 
+          Knot.stub(:find_or_initialize_by_url).with("url").and_return(@knot)
+          @knot.stub!(:update_attributes).and_return(@knot)
+        end
+        
         it "assigns a newly created knot as @knot" do
-          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:user= => true, :save => true))
-          post :create, :knot => {:these => 'params'}
-          assigns[:knot].should equal(mock_knot)
+          post :create, :knot => {:url => 'url', :title => 'title', :summary => nil}
+          assigns[:knot].should equal(@knot)
         end
 
-        it "redirects to the created knot" do
-          Knot.stub(:new).and_return(mock_knot(:user= => true, :save => true))
-          post :create, :knot => {}
+        it "redirects to the knot index" do
+          post :create, :knot => {:url => 'url', :title => 'title', :summary => nil}
           response.should redirect_to(knots_path)
         end
       end
 
       describe "with invalid params" do
         it "assigns a newly created but unsaved knot as @knot" do
-          Knot.stub(:new).with({'these' => 'params'}).and_return(mock_knot(:user= => true, :save => false))
+          Knot.stub(:find_or_initialize_by_url).and_return(mock_knot(:user= => true, :save => false, :update_attributes => true))
           post :create, :knot => {:these => 'params'}
           assigns[:knot].should equal(mock_knot)
         end
 
         it "re-renders the 'new' template" do
-          Knot.stub(:new).and_return(mock_knot(:user= => true, :save => false))
+          Knot.stub(:new).and_return(mock_knot(:user= => true, :save => false, :update_attributes => true))
           post :create, :knot => {}
           response.should render_template('new')
         end

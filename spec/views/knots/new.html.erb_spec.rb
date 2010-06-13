@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "/knots/new.html.erb" do
+describe "/knots/new.html.haml" do
 
   before(:each) do
     assigns[:knot] = stub_model(Knot,

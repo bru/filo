@@ -1,8 +1,8 @@
 - semantic_form_for(@knot) do |f|
   - f.inputs do
-    = f.input :url, :hint => t("knots._form.url_hint")
-    = f.input :title
-    = f.input :summary
+    = f.input :url, :hint => t("knots._form.url_hint"), :label => t("knots._form.url_label") 
+    = f.input :title, :label => t("knots._form.title_label") 
+    = f.input :summary, :as => :text, :label => t("knots._form.summary_label"), :input_html => { :rows => '5', :maxlength => 160 } 
   - f.buttons do
     = f.commit_button
     %p 

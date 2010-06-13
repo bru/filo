@@ -79,12 +79,15 @@ it:
   knots: 
     new: 
       title: Nuovo
-      back_link: Indietro
+      back_link: annulla
     edit: 
       title: Modifica Nodo
-      back_link: Indietro
+      back_link: annulla
     _form: 
       url_hint: "ad esempio: http://post.interessante.ma/troppo/lungo"
+      url_label: "URL"
+      title_label: "Titolo"
+      summary_label: "Descrizione"
     show: 
       url_label: URL
       title_label: Titolo
@@ -103,12 +106,12 @@ it:
       or_bookmarklet_intro: "o usa il "
       trash_count: Cestino
     _actions: 
-      edit: Modifica
+      edit: modifica
       trash: elimina
       confirm_trash: Sei sicuro?
-      replay: Rileggi
-      show: Dettagli
-      skip: Rimanda
+      replay: rileggi
+      show: dettagli
+      skip: rimanda
       ago: fa
       last_read_at: "Letto l'ultima volta "
   controllers: 
@@ -234,7 +237,7 @@ it:
     edit: 
       password_label: Scegli una nuova Password
       title: Modifica l'account
-      password_fieldset: Cambias Password
+      password_fieldset: Cambia Password
       public_flag_hint: Permette agli altri utenti di i nodi che hai letto o intendi leggere
       password_confirmation_label: Conferma la nuova Password
       public_flag: Rendi pubblico il mio profilo

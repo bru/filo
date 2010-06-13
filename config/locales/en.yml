@@ -83,6 +83,9 @@ en:
       back_link: Back
     _form: 
       url_hint: "e.g.: http://interesting.but/too/long"
+      url_label: "URL"
+      title_label: "Title"
+      summary_label: "Summary"
     show: 
       url_label: URL
       title_label: Title

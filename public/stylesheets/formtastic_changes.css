@@ -20,12 +20,32 @@ form.formtastic fieldset > ol > li p.inline-hints {
 
 form.formtastic fieldset > ol > li{
 	margin-bottom: 1em;
+	margin-left: 1em;
 }
 
 form.formtastic fieldset > ol > li.password input {
 	max-width: 74%;
 }
 
+form.formtastic fieldset > ol > li.text textarea {
+	max-width: 74%;
+	width: inherit;
+}
+
 form.formtastic p.inline-hints {
 	font-size: 0.9em;
+}
+
+form.formtastic fieldset.inputs {
+  padding: 10px 0;
+  margin-bottom: 1em;
+}
+form.formtastic fieldset.inputs fieldset > ol > li {
+  font-size: 1em;
+}
+
+form.formtastic fieldset.inputs legend > span {
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-left: 1em;
 }

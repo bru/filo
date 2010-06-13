@@ -14,4 +14,11 @@ describe IphoneController do
       response.should be_success
     end
   end
+  
+  describe "while signed out" do
+    it "should render iphone/signin template" do
+      get 'index'
+      response.should render_template("/iphone/signin")
+    end
+  end
 end
