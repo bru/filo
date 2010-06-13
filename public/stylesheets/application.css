@@ -68,10 +68,10 @@ h2 {
 #flash {
 	font-size: 1.2em;
 }
-#flash_success, #flash_warning, #flash_alert, #flash_error, #flash_failure {
+#flash_success, #flash_notice, #flash_warning, #flash_alert, #flash_error, #flash_failure {
 	padding: 10px;
 }
-#flash_success {
+#flash_success, #flash_notice {
 	color: green;
 }
 
