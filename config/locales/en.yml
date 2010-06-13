@@ -104,12 +104,12 @@ en:
       or_bookmarklet_intro: or use the
       trash_count: Trash
     _actions: 
-      edit: Edit
+      edit: edit
       trash: trash
       confirm_trash: Are you sure?
       replay: replay
-      show: Show
-      skip: Skip
+      show: show
+      skip: skip
       ago: ago
       last_read_at: last played
   controllers: 

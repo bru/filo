@@ -34,7 +34,7 @@ ActionMailer::Base.smtp_settings = {
 }
 
 # Application domain
-FILO_HOST = "filo2.heroku.com"
+FILO_HOST = "filo.bzaar.net"
 
 # Enable threaded mode
 # config.threadsafe!

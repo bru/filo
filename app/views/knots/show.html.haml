@@ -10,6 +10,7 @@
 %p
   %b= t("knots.show.state_label") + ":"
   = h @knot.state
-= link_to t("knots.show.edit_link"), edit_knot_path(@knot)
-|
-\#{link_to t("knots.show.back_link"), knots_path}
+%p
+  = link_to t("knots.show.edit_link"), edit_knot_path(@knot)
+  |
+  \#{link_to t("knots.show.back_link"), knots_path}
