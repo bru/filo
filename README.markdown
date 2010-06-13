@@ -5,7 +5,7 @@ Yes, it's been *heavily* inspired by Instapaper, and I wrote the version just a 
 
 Recently I decided to rewrote the application and move it to Heroku. While I was at it, I also thouth to open source it, so here it is.
 
-Things you may find interesting here:
+=== Things you may find interesting here:
 
 * fully localized, using Rails i18n framework
 * iPhone interface, powered by jqTouch
@@ -13,7 +13,7 @@ Things you may find interesting here:
 * uses thoughtbot's Clearance for authentication. This may change in the future.
 * Cucumber stories covering a good deal of the application's features.
 
-Getting started on Heroku:
+=== Getting started on Heroku
 
 These are the steps if you want to install your own copy of Filo in the cloud:
 
@@ -23,6 +23,6 @@ $ heroku create
 $ git push heroku master
 $ heroku rake db:migrate
 
-TODO: 
+=== TODO 
 
 * a lot. I have plenty of stories left in the icebox. Look this space for changes. On the other hand, feel free to fork and creovate.
