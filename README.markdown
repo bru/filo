@@ -4,7 +4,11 @@ Welcome to Filo
 Filo is a simple application to store links to stuff on the web that you want to read later.
 Yes, it's been *heavily* inspired by Instapaper, and I wrote the version just a few weeks after Instapaper's launch as a means to investigate a few alternatives in shaping the user experience. 
 
-Recently I decided to rewrote the application and move it to Heroku. While I was at it, I also thouth to open source it, so here it is.
+Recently I decided to rewrote the application and move it to Heroku. You can find the current version at:
+
+http://filo.bzaar.net
+
+While at it, I also thought to open source it, so here it is.
 
 Things you may find interesting here:
 -------------------------------------
