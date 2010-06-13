@@ -20,11 +20,11 @@ Getting started on Heroku
 
 These are the steps if you want to install your own copy of Filo in the cloud:
 
-$ git clone http://github.com/bru/filo.git
-$ cd filo
-$ heroku create
-$ git push heroku master
-$ heroku rake db:migrate
+    $ git clone http://github.com/bru/filo.git
+    $ cd filo
+    $ heroku create
+    $ git push heroku master
+    $ heroku rake db:migrate
 
 TODO 
 ----
