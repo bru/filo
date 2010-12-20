@@ -1,9 +1,0 @@
-rails -v '2.3.5'
-pg
-haml -v '3.0.12'
-clearance
-formtastic --ignore-dependencies
-i18n -v '0.3.6'
-aasm
-friendly_id --version '2.3.4'
-stringex
