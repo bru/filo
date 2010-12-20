@@ -1,5 +1,8 @@
+.bundle
 db/*.sqlite3
 log/*.log
+tmp/**/*
+
 log/translate/*
 tmp/*
 tmp/**/*
@@ -7,10 +10,7 @@ tmp/**/*
 config/database.yml
 coverage/*
 public/system
-gems/*
 mkmf.log
-!gems/cache
-!gems/bundler
 webrat-*.html
 .rvmrc
 public/words/*
