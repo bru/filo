@@ -1,16 +1,19 @@
-Filo::Application.routes.draw do |map|
-  
+Filo::Application.routes.draw do
   devise_for :users
-  map.resources :users
+  resources :users
 
-  map.iphone '/i', :controller => "iphone", :action => "index"
+  match '/i' => "iphone#index", :as => :iphone
+  match "/a" => "knots#create", :as => :addknot, :defaults => { :remote => true }
   
-  map.addknot "/a", :controller => "knots", :action => "create", :remote => true  
-  map.resources :knots, :member => { :skip => :get, :replay => :get, :trash => :get, :read => :get }
+  resources :knots do
+    member do
+      get 'skip'
+      get 'replay'
+      get 'trash'
+      get 'read'
+    end
+  end
 
-
-  map.root :controller => "static", :action => "home"
-
-  Translate::Routes.translation_ui(map) if RAILS_ENV == "development"
+  root :to => "static#home"
 
 end
