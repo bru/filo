@@ -44,6 +44,9 @@ en:
       link_home: Source Code
       blurb: This application has been brought you by <a href='http://chaosncoffee.com'>Bru</a> heavily inspired by <a href='http://marco.org'>Marco</a>'s <a href='http://instapaper.com'>Instapaper</a>
       link_issues: Issues
+    _user_nav:
+      set_en: Use English interface
+      set_it: Utilizza l'interfaccia Italiana
   activerecord: 
     errors: 
       messages: 

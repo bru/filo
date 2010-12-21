@@ -1,5 +1,9 @@
 #footer
   %p
-    = t("layouts._footer.blurb")
-  %span#links= link_to t("layouts._footer.link_home"), "http://code.google.com/p/filo"
-  \&bull; #{link_to t("layouts._footer.link_issues"), " http://code.google.com/p/filo/issues/list"} &bull; #{mail_to "bru@codewitch.org", "bru@codewitch.org", :encode => "javascript"}
+    = raw t("layouts._footer.blurb")
+  %span#links
+    = link_to t("layouts._footer.link_home"), "http://github.com/bru/filo"
+    \&bull; 
+    = link_to t("layouts._footer.link_issues"), "http://github.com/bru/filo/issues" 
+    \&bull; 
+    = mail_to "bru@codewitch.org", "bru@codewitch.org", :encode => "javascript"

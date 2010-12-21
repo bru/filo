@@ -46,6 +46,9 @@ it:
       link_home: Codice sorgente
       blurb: "Questo servizio \xC3\xA8 stato creato da <a href='http://chaosncoffee.com'>Bru</a> e largamente ispirato a <a href='http://instapaper.com'>Instapaper</a> di <a href='http://marco.org'>Marco Arment</a>"
       link_issues: Supporto
+    _user_nav:
+      set_en: Use English interface
+      set_it: Utilizza l'interfaccia Italiana
   activerecord: 
     errors: 
       messages: 

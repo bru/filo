@@ -15,6 +15,10 @@
     %span= link_to t("layouts._header.sign_up"), new_user_registration_path()
     \&bull;
   %span
-    [#{link_to "en", { :locale => "en"}, { :title => t("Set language to English") }}]
+    [
+    = link_to "en", { :locale => "en"}, { :title => t("layouts._user_nav.set_en") }
+    ]
   %span
-    [#{link_to "it", { :locale => "it"}, { :title => t("Set language to Italian")}}]
+    [
+    = link_to "it", { :locale => "it"}, { :title => t("layouts._user_nav.set_it") }
+    ]

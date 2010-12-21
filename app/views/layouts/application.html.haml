@@ -17,7 +17,7 @@
     #wrapper
       #header
         = render :partial => 'layouts/header'
-        = flash_messages
+        = raw flash_messages
       #content
         = yield
       #footer
