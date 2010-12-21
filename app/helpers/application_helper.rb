@@ -9,6 +9,7 @@ module ApplicationHelper
       out += "<div id=\"flash_#{key}\">#{h value}</div>"
     end
     out+="</div>"
+    return out.html_safe
   end
   
    def bookmarklet

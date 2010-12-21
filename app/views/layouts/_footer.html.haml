@@ -1,6 +1,6 @@
 #footer
   %p
-    = raw t("layouts._footer.blurb")
+    = t("layouts._footer.blurb").html_safe
   %span#links
     = link_to t("layouts._footer.link_home"), "http://github.com/bru/filo"
     \&bull; 
