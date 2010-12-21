@@ -16,7 +16,7 @@ describe "/knots/new.html.haml" do
   it "renders new knot form" do
     render
 
-    response.should have_tag("form[action=?][method=post]", knots_path) do
+    rendered.should have_tag("form[action=?][method=post]", knots_path) do
       with_tag("input#knot_url[name=?]", "knot[url]")
       with_tag("textarea#knot_summary[name=?]", "knot[summary]")
       with_tag("input#knot_title[name=?]", "knot[title]")

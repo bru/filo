@@ -16,7 +16,7 @@ describe "/knots/edit.html.haml" do
   it "renders the edit knot form" do
     render
 
-    response.should have_tag("form[action=#{knot_path(@knot)}][method=post]") do
+    rendered.should have_tag("form[action=#{knot_path(@knot)}][method=post]") do
       with_tag('input#knot_url[name=?]', "knot[url]")
       with_tag('textarea#knot_summary[name=?]', "knot[summary]")
       with_tag('input#knot_title[name=?]', "knot[title]")

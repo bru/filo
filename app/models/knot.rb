@@ -3,7 +3,9 @@ class Knot < ActiveRecord::Base
   belongs_to :user
   
   validates_length_of :summary, :within => 0..160, :allow_blank => true
-  validates_length_of :title, :within => 0..128, :allow_blank => true  
+  validates_length_of :title, :within => 0..128, :allow_blank => true 
+  
+  validates_format_of :url, :with => URI::regexp(%w(http https)) 
   
   aasm_initial_state :unread
   aasm_column :state
@@ -24,9 +26,9 @@ class Knot < ActiveRecord::Base
   end
   
   aasm_event :trash do 
-    transitions :from => :unread, :to => :trashed
-    transitions :from => :read, :to => :trashed
-    transitions :from => :trashed, :to => :trashed
+    transitions :from => :unread,   :to => :trashed
+    transitions :from => :read,     :to => :trashed
+    transitions :from => :trashed,  :to => :trashed
   end
   
   def human_title

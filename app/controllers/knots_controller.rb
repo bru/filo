@@ -1,6 +1,6 @@
 class KnotsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_and_require_owner, :except => [:index, :new, :show,:create]
+  before_filter :find_and_require_owner, :except => [:index, :new, :show, :create]
   
   # GET /knots
   # GET /knots.xml
@@ -41,12 +41,11 @@ class KnotsController < ApplicationController
   # POST /knots
   # POST /knots.xml
   def create
-    @knot = current_user.knots.find_or_initialize_by_url(params[:u] || params[:knot][:url])
-    @knot.update_attributes( params[:remote] ? { :title   =>params[:t],
-                                                 :summary => params[:s] } : params[:knot])
+    knot_params = normalize_knot_params(params)
+    @knot = current_user.knots.find_or_initialize_by_url(knot_params[:url])
 
     respond_to do |format|
-      if @knot.save
+      if @knot.update_attributes(knot_params)
         flash[:notice] = I18n.t('controllers.knots.create.success')
         format.html do
           if params[:remote]
@@ -130,6 +129,17 @@ class KnotsController < ApplicationController
   end
   
 protected
+  def normalize_knot_params(params={})
+    if params[:remote]
+      params[:knot] = { 
+          :url      => params[:u],
+          :title    => params[:t],
+          :summary  => params[:s]
+      }
+    end
+    return params[:knot]
+  end
+  
   def find_and_require_owner
     @knot = current_user.knots.find(params[:id])
   rescue ActiveRecord::RecordNotFound

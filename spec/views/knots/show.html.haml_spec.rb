@@ -13,10 +13,10 @@ describe "/knots/show.html.haml" do
 
   it "renders attributes in <p>" do
     render
-    response.should have_text(/value\ for\ url/)
-    response.should have_text(/value\ for\ summary/)
-    response.should have_text(/value\ for\ title/)
-    response.should have_text(/value\ for\ state/)
-    response.should have_text(/1/)
+    rendered.should have_text(/value\ for\ url/)
+    rendered.should have_text(/value\ for\ summary/)
+    rendered.should have_text(/value\ for\ title/)
+    rendered.should have_text(/value\ for\ state/)
+    rendered.should have_text(/1/)
   end
 end
