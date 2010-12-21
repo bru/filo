@@ -3,7 +3,7 @@ class IphoneController < ApplicationController
   layout "iphone"
     
   def index
-    if signed_in?
+    if user_signed_in?
       @knots = current_user.knots
       render :layout => iphone_layout
     else

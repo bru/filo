@@ -249,7 +249,8 @@ en:
       back_link: No! I was joking!
     show: 
       title: "%{name}'s profile"
-      blurb: "Nothing much to see here. But you can have a glance at the knots in %{user}'s filo:"
+      public_blurb: "Nothing much to see here. But you can have a glance at the knots in %{user}'s filo:"
+      private_blurb: "Nothing much to see here. %{user} has a private filo profile."
     _inputs: 
       password_confirmation_label: Confirm Password
   sessions: 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100605150120) do
+ActiveRecord::Schema.define(:version => 20101221092256) do
 
   create_table "knots", :force => true do |t|
     t.string   "url"
@@ -36,22 +36,23 @@ ActiveRecord::Schema.define(:version => 20100605150120) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",              :limit => 128
-    t.string   "encrypted_password", :limit => 128
-    t.string   "salt",               :limit => 128
-    t.string   "confirmation_token", :limit => 128
-    t.string   "remember_token",     :limit => 128
-    t.boolean  "email_confirmed",                   :default => false, :null => false
+    t.string   "email",                :limit => 128
+    t.string   "encrypted_password",   :limit => 128
+    t.string   "password_salt",        :limit => 128
+    t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "nickname",           :limit => 40
-    t.string   "language",           :limit => 6
-    t.string   "cached_slug",        :limit => 40
+    t.string   "nickname",             :limit => 40
+    t.string   "language",             :limit => 6
+    t.string   "cached_slug",          :limit => 40
     t.boolean  "public_flag"
+    t.string   "reset_password_salt"
+    t.string   "reset_password_token"
+    t.datetime "remember_created_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["id", "confirmation_token"], :name => "index_users_on_id_and_confirmation_token"
+  add_index "users", ["id"], :name => "index_users_on_id_and_confirmation_token"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

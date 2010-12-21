@@ -1,14 +1,21 @@
 class User < ActiveRecord::Base
-  include Clearance::User
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable, :lockable, :trackable and :timeoutable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :nickname, :email, :password, :password_confirmation, :remember_me, :language, :public_flag
   
   has_friendly_id :nick_or_email, 
                   :use_slug => true, 
                   :max_length => 40 
   
   has_many :knots, :order => "created_at DESC"
-  validates_length_of :nickname, :within => 3..40, :allow_blank => true
+  validates_presence_of :nickname, :if => :is_public?, :allow_blank => true
+  validates_length_of   :nickname, :within => 1..40,   :allow_blank => true
+  validates_format_of   :nickname, :with => /\A[a-z0-9_\-]+\Z/i, :allow_blank => true
   validates_uniqueness_of :nickname, :if => :is_public?
-  validates_presence_of :nickname, :if => :is_public?
   
   def nick_or_email
     nickname.blank? ? email : nickname
@@ -20,6 +27,10 @@ class User < ActiveRecord::Base
   
   def is_public?
     self.public_flag
+  end
+  
+  def is_private?
+    !is_public?
   end
   
 end

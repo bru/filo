@@ -22,5 +22,9 @@ Filo::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  FILO_HOST="localhost:3000"
+  
+  config.action_mailer.default_url_options = { :host => FILO_HOST }
 end
 

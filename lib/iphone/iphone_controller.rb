@@ -7,7 +7,7 @@ module Iphone
   #   end
   #
   # you can use this in other controllers as well.
-  # I'm using Clearance in filo, which doesn't pay very well (as of current version) with custom defined format;
+  # I'm using Clearance in filo, which doesn't play very well (as of current version) with custom defined format;
   # hence the commented out code in set_iphone_format and acts_as_iphone_controller
   
   module IphoneController

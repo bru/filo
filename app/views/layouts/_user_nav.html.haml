@@ -1,4 +1,4 @@
-- if signed_in?
+- if user_signed_in?
   %span#greeting
     = t "layouts._header.hello"
     = link_to h(current_user.nick_or_email), user_url(current_user)
@@ -6,13 +6,13 @@
   %span#settings= link_to t("layouts._header.settings"), edit_user_url(current_user)
   \&bull;
   %span#logout
-    = link_to t("layouts._header.sign_out"), sign_out_path
+    = link_to t("layouts._header.sign_out"), destroy_user_session_path
     ?
 - else
   - if (show_visitor_links?) 
-    %span= link_to t("layouts._header.sign_in"), sign_in_path()
+    %span= link_to t("layouts._header.sign_in"), new_user_session_path()
     \&bull;
-    %span= link_to t("layouts._header.sign_up"), sign_up_path()
+    %span= link_to t("layouts._header.sign_up"), new_user_registration_path()
     \&bull;
   %span
     [#{link_to "en", { :locale => "en"}, { :title => t("Set language to English") }}]

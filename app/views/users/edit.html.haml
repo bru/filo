@@ -1,6 +1,6 @@
 %h2= t("users.edit.title")
 - semantic_form_for @user do |form|
-  = form.error_messages
+  = form.semantic_errors
   - form.inputs do
     = form.input :nickname
     = form.input :public_flag, :as => :radio, :label => t("users.edit.public_flag"), :hint => t("users.edit.public_flag_hint"), :collection => { t("users.edit.public_flag_yes") => true, t("users.edit.public_flag_no") => false}

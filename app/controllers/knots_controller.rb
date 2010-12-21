@@ -1,5 +1,5 @@
 class KnotsController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate_user!
   before_filter :find_and_require_owner, :except => [:index, :new, :show,:create]
   
   # GET /knots

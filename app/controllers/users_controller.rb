@@ -1,39 +1,14 @@
-class UsersController < Clearance::UsersController
-  before_filter :authenticate, :only => [:destroy, :edit, :update]
+class UsersController < ApplicationController
+  before_filter :authenticate_user!, :only => [:destroy, :edit, :update]
   before_filter :find_user, :only => [:destroy, :edit, :update, :show]
   before_filter :require_owner, :only => [:destroy, :edit, :update]
-  
-  def destroy
-    if request.delete?
-      sign_out
-      @user.destroy
-      flash[:notice] = I18n.t('controllers.users.destroy.success')
-      redirect_to root_path and return
-    end
-  end
   
   def edit
   end
   
-  def create
-    @user = ::User.new params[:user]
-    if @user.save
-      if request.xhr?
-        render :template => 'iphone/signup_success', :layout => false
-      else
-        flash_notice_after_create
-        redirect_to(url_after_create)
-      end
-    else
-      if request.xhr?
-        render :template => 'iphone/signup_error', :layout => false
-      else
-        render :template => 'users/new'
-      end
-    end
-  end
-  
   def update
+    params[:user].delete(:password) && params[:user].delete(:password_confirmation) if params[:user][:password].blank?
+    logger.warn "Updating user with:\n#{params[:user].inspect}"
     if @user.update_attributes(params[:user])
       flash[:notice] = I18n.t('controllers.users.update.success')
       redirect_to knots_path
@@ -44,7 +19,7 @@ class UsersController < Clearance::UsersController
   end
   
   def show
-    unless @user.is_public? 
+    unless @user.is_public? or is_owner?
       flash[:alert] = "The user you tried to access does not have a public profile"
       redirect_to knots_path
     end
@@ -60,8 +35,12 @@ class UsersController < Clearance::UsersController
     deny_action(I18n.t("controllers.users.find_user.not_found"))
   end
   
+  def is_owner?
+    @user == current_user
+  end
+  
   def require_owner
-    raise NotOwner unless @user == current_user
+    raise NotOwner unless is_owner?
   rescue NotOwner
     deny_action(I18n.t("controllers.users.find_user.unauthorized"))
   end

@@ -20,6 +20,6 @@ module ApplicationHelper
    end
    
    def show_visitor_links?
-     ![sign_in_path, sign_up_path].include? request.path
+     ![new_user_session_path, new_user_registration_path].include? request.path
    end
 end

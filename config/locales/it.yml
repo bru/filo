@@ -254,7 +254,8 @@ it:
       back_link: No! Stavo scherzando!
     show: 
       title: Il profilo di %{name}
-      blurb: "Non c'\xC3\xA8 molto qui per ora. Tuttavia, puoi vedere i Nodi creati da %{user}"
+      public_blurb: "Non c'\xC3\xA8 molto qui per ora. Tuttavia, puoi vedere i Nodi creati da %{user}"
+      private_blurb: "Il profilo di %{user} è privato."
     _inputs: 
       password_confirmation_label: Conferma Password
   sessions: 

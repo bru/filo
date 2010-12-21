@@ -1,10 +1,13 @@
 %h2= t("users.show.title", :name => @user.nick_or_email)
 
 #profile 
-  %p= t("users.show.blurb", :user => @user.nick_or_email)
-  %h3= t("knots.index.unread")
-  %ol.knots.unread
-    = render :partial => 'knots/knot', :collection => @user.knots.unread, :locals => { :actions => false}
-  %h3= t("knots.index.read")
-  %ol.knots.read
-    = render :partial => 'knots/knot', :collection => @user.knots.read, :locals => { :actions => false}
+  - if @user.is_private?
+    %p= t("users.show.private_blurb", :user => @user.nick_or_email)
+  - else 
+    %p= t("users.show.public_blurb", :user => @user.nick_or_email)
+    %h3= t("knots.index.unread")
+    %ol.knots.unread
+      = render :partial => 'knots/knot', :collection => @user.knots.unread, :locals => { :actions => false}
+    %h3= t("knots.index.read")
+    %ol.knots.read
+      = render :partial => 'knots/knot', :collection => @user.knots.read, :locals => { :actions => false}

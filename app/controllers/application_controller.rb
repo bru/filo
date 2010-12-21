@@ -6,9 +6,6 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
 
   # Respond to iphone requests
   acts_as_iphone_controller
@@ -34,6 +31,6 @@ class ApplicationController < ActionController::Base
   end
   
   def extract_locale_from_user
-    signed_in? && current_user.language
+    user_signed_in? && current_user.language
   end
 end

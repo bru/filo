@@ -7,11 +7,12 @@ gem 'rails', '3.0.3'
 
 gem 'mysql2'
 
+gem 'devise'
 gem 'formtastic'
 gem 'i18n'
 gem 'aasm'
 gem 'haml', "3.0.12"
-gem "friendly_id", "~> 2.3"
+gem "friendly_id"
 gem "stringex"
 
 gem 'rails-i18n-updater'
