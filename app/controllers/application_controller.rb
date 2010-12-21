@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # include Clearance
-  include Clearance::Authentication
   
   # set locale
   before_filter :set_locale

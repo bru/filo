@@ -7,7 +7,6 @@ gem 'rails', '3.0.3'
 
 gem 'mysql2'
 
-gem "clearance", :git => "https://github.com/thoughtbot/clearance.git"
 gem 'formtastic'
 gem 'i18n'
 gem 'aasm'
