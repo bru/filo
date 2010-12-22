@@ -20,8 +20,7 @@ module Iphone
     
       def acts_as_iphone_controller
         include IphoneController::InstanceMethods 
-        # XXX Clearance doesn't play well with iphone format :(
-        # before_filter(:set_iphone_format)
+        before_filter(:set_iphone_format)
         helper_method :is_iphone_request?
       end
     end
@@ -32,7 +31,6 @@ module Iphone
       # Commenting this out as I can't make it work nicely with Clearance
       def set_iphone_format
         if is_iphone_request? || is_iphone_format? || is_iphone_subdomain?
-          # XXX Clearance doesn't play well with iphone format :(
           request.format = cookies["browser"] == "desktop" ? :html : :iphone 
         end
       end

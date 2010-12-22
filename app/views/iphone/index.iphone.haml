@@ -14,7 +14,7 @@
       %li
         %a.slideup{ :href => "#about"} About
     %div.info
-      %p= "Last knot created #{time_ago_in_words @knots.first.created_at} ago" if @knots.count > 0
+      %p= "Last knot created #{time_ago_in_words(@knots.first.created_at)} ago" if @knots.count > 0
     
 #read
   .toolbar
@@ -29,7 +29,7 @@
     %h1 Add Knot
     %a.button.back{ :href => "#home"} Back
   %div
-    - form_for :knot, :url => knots_path do |form|
+    = form_for :knot, :url => knots_path do |form|
       %ul
         %li= form.text_field :url,    :placeholder => "url"
         %li= form.text_field :title,  :placeholder => "title"

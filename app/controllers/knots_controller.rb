@@ -51,9 +51,10 @@ class KnotsController < ApplicationController
           if params[:remote]
             render :layout => "bookmarklet"
           else
-            redirect_to(request.xhr? ? iphone_path : knots_path)
+            redirect_to knots_path
           end
         end
+        format.iphone { redirect_to iphone_path }
         format.xml  { render :xml => @knot, :status => :created, :location => @knot }
       else
         flash[:alert] = I18n.t('controllers.knots.create.failure')
@@ -137,6 +138,7 @@ protected
           :summary  => params[:s]
       }
     end
+    params[:knot][:url].downcase!
     return params[:knot]
   end
   

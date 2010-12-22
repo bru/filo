@@ -1,14 +1,17 @@
 class IphoneController < ApplicationController
-  
   layout "iphone"
     
   def index
-    if user_signed_in?
-      @knots = current_user.knots
-      render :layout => iphone_layout
-    else
-      store_location
-      render :template => "/iphone/signin"
+    respond_to do |format|
+      format.iphone do
+        if user_signed_in?
+          @knots = current_user.knots
+          render :layout => iphone_layout
+        else
+          render :template => "/iphone/signin", :layout => "iphone"
+        end
+      end
+      format.html { redirect_to root_path }
     end
   end
 

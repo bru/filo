@@ -5,14 +5,14 @@
     
   %div
     %h2 Sign in
-    - form_for :session, :url => session_path do |form|
+    = form_for :user, :url => new_user_session_path do |form|
       %ul
         %li= form.text_field :email, :placeholder => "email"
         %li= form.password_field :password, :placeholder => "password"
         %li= form.submit "Sign in", :class => "submit"
         
     %h2 Sign up
-    - form_for :user, :url => users_path do |form|
+    = form_for :user, :url => users_path do |form|
       %ul
         %li= form.text_field :email, :placeholder => "email"
         %li= form.password_field :password, :placeholder => "password"

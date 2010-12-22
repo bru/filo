@@ -1,5 +1,5 @@
-!!! Strict
-%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+!!! 
+%html
   %head
     %title
       Filo
@@ -10,7 +10,7 @@
       google.load("jquery", "1.4.2");
     = stylesheet_link_tag "jqtouch/jqtouch.css", "jqtouch/jqt/theme.css"
     = javascript_include_tag "jqtouch/jqtouch.js", "iphone.js"
-    
+    = csrf_meta_tag    
   %body
     #jqt
       = yield
