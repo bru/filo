@@ -15,15 +15,21 @@ gem 'haml', "3.0.12"
 gem "friendly_id"
 gem "stringex"
 
-gem 'rails-i18n-updater'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
-group :development, :test do
+group :development do
+  gem 'ruby-debug19'
+  gem 'wirble'
+  gem 'awesome_print'
+  gem 'sketches'  
+end
+
+group :test do
   gem 'test-unit'
   gem 'webrat'
   gem "rspec-rails"
   gem 'factory_girl'
   gem "autotest"
-  gem 'ruby-debug19'
 end
 # Use unicorn as the web server
 # gem 'unicorn'

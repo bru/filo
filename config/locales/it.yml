@@ -1,39 +1,5 @@
 --- 
 it: 
-  number: 
-    format: 
-      separator: ","
-      precision: 3
-      delimiter: .
-    human: 
-      format: 
-        precision: 1
-        delimiter: ""
-      storage_units: 
-        format: "%n %u"
-        units: 
-          kb: Kb
-          tb: Tb
-          gb: Gb
-          byte: 
-            one: Byte
-            other: Byte
-          mb: Mb
-    percentage: 
-      format: 
-        delimiter: ""
-    currency: 
-      format: 
-        format: "%n %u"
-        unit: !binary |
-          4oKs
-
-        separator: .
-        precision: 2
-        delimiter: ","
-    precision: 
-      format: 
-        delimiter: ""
   layouts: 
     _header: 
       sign_in: Accedi
@@ -49,36 +15,6 @@ it:
     _user_nav:
       set_en: Use English interface
       set_it: Utilizza l'interfaccia Italiana
-  activerecord: 
-    errors: 
-      messages: 
-        greater_than_or_equal_to: deve essere superiore o uguale a %{count}
-        record_invalid: ""
-        confirmation: non coincide con la conferma
-        less_than_or_equal_to: deve essere meno o uguale a %{count}
-        blank: "non pu\xC3\xB2 essere lasciato in bianco"
-        exclusion: "\xC3\xA8 riservato"
-        invalid: "non \xC3\xA8 valido"
-        odd: deve essere dispari
-        even: deve essere pari
-        too_short: "\xC3\xA8 troppo corto (il minimo \xC3\xA8 %{count} lettere)"
-        wrong_length: "\xC3\xA8 della lunghezza sbagliata (deve essere di %{count} lettere)"
-        empty: "non pu\xC3\xB2 essere vuoto"
-        less_than: deve essere meno di %{count}
-        equal_to: deve essere uguale a %{count}
-        greater_than: deve essere superiore a %{count}
-        too_long: "\xC3\xA8 troppo lungo (il massimo \xC3\xA8 %{count} lettere)"
-        taken: "\xC3\xA8 gi\xC3\xA0 in uso"
-        accepted: deve essere accettata
-        inclusion: "non \xC3\xA8 incluso nella lista"
-        not_a_number: "non \xC3\xA8 un numero"
-      full_messages: 
-        format: ""
-      template: 
-        body: "Per favore ricontrolla i seguenti campi:"
-        header: 
-          one: "Non posso salvare questo %{model}: 1 errore"
-          other: "Non posso salvare questo %{model}: %{count} errori."
   knots: 
     new: 
       title: Nuovo
@@ -269,46 +205,140 @@ it:
       sign_up_text: "Se non hai ancora creato un account, "
       sign_up_link: Registrazione
       forgotten_password_link: Password dimenticata
-  datetime: 
-    prompts: 
-      minute: Minuto
-      month: Mese
-      second: Secondi
-      hour: Ora
-      day: Giorno
-      year: Anno
-    distance_in_words: 
-      less_than_x_minutes: 
-        one: meno di un minuto
-        other: meno di %{count} minuti
-      x_days: 
-        one: 1 giorno
-        other: "%{count} giorni"
-      almost_x_years: 
-        one: quasi un anno
-        other: quasi %{count} anni
-      x_seconds: 
-        one: 1 secondo
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 3
+
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: "."
+        delimiter: ","
+        precision: 2
+
+    percentage:
+      format:
+        delimiter: ""
+        # precision: 
+
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+
+    human:
+      format:
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Byte"
+          kb: "Kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [Domenica, Lunedì, Martedì, Mercoledì, Giovedì, Venerdì, Sabato]
+    abbr_day_names: [Dom, Lun, Mar, Mer, Gio, Ven, Sab]
+
+    month_names: [~, Gennaio, Febbraio, Marzo, Aprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
+    abbr_month_names: [~, Gen, Feb, Mar, Apr, Mag, Giu, Lug, Ago, Set, Ott, Nov, Dic]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "mezzo minuto"
+      less_than_x_seconds:
+        one:  "meno di un secondo"
+        other: "meno di %{count} secondi"
+      x_seconds:
+        one:  "1 secondo"
         other: "%{count} secondi"
-      about_x_hours: 
-        one: circa un'ora
-        other: circa %{count} ore
-      less_than_x_seconds: 
-        one: meno di un secondo
-        other: meno di %{count} secondi
-      x_months: 
-        one: 1 mese
-        other: "%{count} mesi"
-      x_minutes: 
-        one: 1 minuto
+      less_than_x_minutes:
+        one:  "meno di un minuto"
+        other: "meno di %{count} minuti"
+      x_minutes:
+        one:  "1 minuto"
         other: "%{count} minuti"
-      about_x_years: 
-        one: circa un anno
-        other: circa %{count} anni
-      about_x_months: 
-        one: circa un mese
-        other: circa %{count} mesi
-      over_x_years: 
-        one: oltre un anno
-        other: oltre %{count} anni
-      half_a_minute: mezzo minuto
+      about_x_hours:
+        one:  "circa un'ora"
+        other: "circa %{count} ore"
+      x_days:
+        one:  "1 giorno"
+        other: "%{count} giorni"
+      about_x_months:
+        one:  "circa un mese"
+        other: "circa %{count} mesi"
+      x_months:
+        one:  "1 mese"
+        other: "%{count} mesi"
+      about_x_years:
+        one:  "circa un anno"
+        other: "circa %{count} anni"
+      over_x_years:
+        one:  "oltre un anno"
+        other: "oltre %{count} anni"
+    prompts:
+      year:   "Anno"
+      month:  "Mese"
+      day:    "Giorno"
+      hour:   "Ora"
+      minute: "Minuto"
+      second: "Secondi"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "
+
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: "Non posso salvare questo %{model}: 1 errore"
+          other: "Non posso salvare questo %{model}: %{count} errori."
+        body: "Per favore ricontrolla i seguenti campi:"
+      messages:
+        inclusion: "non è incluso nella lista"
+        exclusion: "è riservato"
+        invalid: "non è valido"
+        confirmation: "non coincide con la conferma"
+        accepted: "deve essere accettata"
+        empty: "non può essere vuoto"
+        blank: "non può essere lasciato in bianco"
+        too_long: "è troppo lungo (il massimo è %{count} lettere)"
+        too_short: "è troppo corto (il minimo è %{count} lettere)"
+        wrong_length: "è della lunghezza sbagliata (deve essere di %{count} lettere)"
+        taken: "è già in uso"
+        not_a_number: "non è un numero"
+        greater_than: "deve essere superiore a %{count}"
+        greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
+        equal_to: "deve essere uguale a %{count}"
+        less_than: "deve essere meno di %{count}"
+        less_than_or_equal_to: "deve essere meno o uguale a %{count}"
+        odd: "deve essere dispari"
+        even: "deve essere pari"

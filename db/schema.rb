@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101221092256) do
+ActiveRecord::Schema.define(:version => 20101222120423) do
+
+  create_table "histories", :force => true do |t|
+    t.string   "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "knots", :force => true do |t|
     t.string   "url"
@@ -49,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20101221092256) do
     t.string   "reset_password_salt"
     t.string   "reset_password_token"
     t.datetime "remember_created_at"
+    t.boolean  "admin",                               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
