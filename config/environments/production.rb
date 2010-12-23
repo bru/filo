@@ -34,8 +34,20 @@ Filo::Application.configure do
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
 
+  FILO_HOST = "filo.bzaar.net"
+  
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => FILO_HOST }
+  ActionMailer::Base.smtp_settings = {
+    :address  => "mail.bzaar.net",
+    :port  => 25,
+    :user_name  => MAIL_USERNAME,
+    :password  => MAIL_PASSWORD,
+    :authentication  => :login
+  }
 
   # Enable threaded mode
   # config.threadsafe!
@@ -46,4 +58,5 @@ Filo::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
 end

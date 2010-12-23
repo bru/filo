@@ -21,18 +21,6 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
 
-
-config.gem 'rspec-rails', :version =>  '>=1.2.9', :lib => false
-config.gem 'launchy'
-config.gem 'configuration'
-config.gem 'factory_girl'
-config.gem 'database_cleaner'
-config.gem 'timecop'
-config.gem 'fakeweb'
-config.gem 'cucumber-rails',   :lib => false, :version => '>=0.3.1' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber-rails'))
-config.gem 'database_cleaner', :lib => false, :version => '>=0.5.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/database_cleaner'))
-config.gem 'webrat',           :lib => false, :version => '>=0.7.0' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
-
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 FILO_HOST = "localhost:3000"
 
