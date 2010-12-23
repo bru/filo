@@ -45,7 +45,20 @@ h2 {
 
 /* header */
 #usermenu {
-	float: right
+	float: right;
+}
+
+#usermenu ul {
+  min-width: 130px;
+  margin: 0 0 0 15px;
+}
+#usermenu ul li {
+  list-style: none;
+  font-size: 1em;
+}
+
+img.avatar {
+  float: left;
 }
 
 #header {
