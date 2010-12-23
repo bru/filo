@@ -44,8 +44,8 @@ Filo::Application.configure do
   ActionMailer::Base.smtp_settings = {
     :address  => "mail.bzaar.net",
     :port  => 25,
-    :user_name  => MAIL_USERNAME,
-    :password  => MAIL_PASSWORD,
+    :user_name  => ENV['MAIL_USERNAME'],
+    :password  => ENV['MAIL_PASSWORD'],
     :authentication  => :login
   }
 
