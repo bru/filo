@@ -16,10 +16,10 @@ describe "/knots/edit.html.haml" do
   it "renders the edit knot form" do
     render
 
-    rendered.should have_tag("form[action=#{knot_path(@knot)}][method=post]") do
-      with_tag('input#knot_url[name=?]', "knot[url]")
-      with_tag('textarea#knot_summary[name=?]', "knot[summary]")
-      with_tag('input#knot_title[name=?]', "knot[title]")
+    rendered.should have_selector("form[action='#{knot_path(@knot)}'][method=post]") do |form|
+      form.should have_selector('input#knot_url[name="knot[url]"]')
+      form.should have_selector('textarea#knot_summary[name="knot[summary]"]')
+      form.should have_selector('input#knot_title[name="knot[title]"]')
     end
   end
 end

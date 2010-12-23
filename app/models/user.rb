@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
                   :max_length => 40 
   
   has_many :knots, :order => "created_at DESC"
-  validates_presence_of :nickname, :if => :is_public?, :allow_blank => true
-  validates_length_of   :nickname, :within => 1..40,   :allow_blank => true
-  validates_format_of   :nickname, :with => /\A[a-z0-9_\-]+\Z/i, :allow_blank => true
+  validates_presence_of :nickname, :if => :is_public?, :if => :is_public?
+  validates_length_of   :nickname, :within => 1..40,   :if => :is_public?
+  validates_format_of   :nickname, :with => /\A[a-z0-9_\-]+\Z/i, :if => :is_public?
   validates_uniqueness_of :nickname, :if => :is_public?
   
   def nick_or_email

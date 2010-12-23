@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Knot do
   before(:each) do
     @valid_attributes = {
-      :url => "value for url",
+      :url => "http://url.com",
       :summary => "value for summary",
       :title => "value for title",
       :state => "value for state",

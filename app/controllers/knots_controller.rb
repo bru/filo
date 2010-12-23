@@ -45,35 +45,42 @@ class KnotsController < ApplicationController
     @knot = current_user.knots.find_or_initialize_by_url(knot_params[:url])
 
     respond_to do |format|
-      if @knot.update_attributes(knot_params)
-        flash[:notice] = I18n.t('controllers.knots.create.success')
-        format.html do
-          if params[:remote]
-            render :layout => "bookmarklet"
-          else
-            redirect_to knots_path
+      begin
+        if @knot.update_attributes(knot_params)
+          flash[:notice] = I18n.t('controllers.knots.create.success')
+          format.html do
+            if params[:remote]
+              render :layout => "bookmarklet"
+            else
+              redirect_to knots_path
+            end
           end
+          format.iphone { redirect_to iphone_path }
+          format.xml  { render :xml => @knot, :status => :created, :location => @knot }
+        else
+          raise ActiveRecord::AttributeAssignmentError 
         end
-        format.iphone { redirect_to iphone_path }
-        format.xml  { render :xml => @knot, :status => :created, :location => @knot }
-      else
+      rescue Exception => e
         flash[:alert] = I18n.t('controllers.knots.create.failure')
-        format.html { render :action => "new" }
+        format.html { redirect_to new_knot_path }
         format.xml  { render :xml => @knot.errors, :status => :unprocessable_entity }
-      end
+      end     
     end
   end
 
   # PUT /knots/1
   # PUT /knots/1.xml
   def update
-
     respond_to do |format|
-      if @knot.update_attributes(params[:knot])
-        flash[:notice] = I18n.t('controllers.knots.update.success')
-        format.html { redirect_to(knots_path) }
-        format.xml  { head :ok }
-      else
+      begin
+        if @knot.update_attributes(params[:knot])
+          flash[:notice] = I18n.t('controllers.knots.update.success')
+          format.html { redirect_to(knots_path) }
+          format.xml  { head :ok }
+        else
+          raise ActiveRecord::AttributeAssignmentError 
+        end
+      rescue Exception => e          
         format.html { render :action => "edit" }
         format.xml  { render :xml => @knot.errors, :status => :unprocessable_entity }
       end
@@ -138,7 +145,7 @@ protected
           :summary  => params[:s]
       }
     end
-    params[:knot][:url].downcase!
+    params[:knot][:url].downcase! if params[:knot][:url].present?
     return params[:knot]
   end
   

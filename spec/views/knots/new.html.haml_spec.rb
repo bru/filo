@@ -3,23 +3,16 @@ require 'spec_helper'
 describe "/knots/new.html.haml" do
 
   before(:each) do
-    assigns[:knot] = stub_model(Knot,
-      :new_record? => true,
-      :url => "value for url",
-      :summary => "value for summary",
-      :title => "value for title",
-      :state => "value for state",
-      :user_id => 1
-    )
+    assign(:knot, Factory.build(:knot))
   end
 
   it "renders new knot form" do
     render
 
-    rendered.should have_tag("form[action=?][method=post]", knots_path) do
-      with_tag("input#knot_url[name=?]", "knot[url]")
-      with_tag("textarea#knot_summary[name=?]", "knot[summary]")
-      with_tag("input#knot_title[name=?]", "knot[title]")
+    rendered.should have_selector("form[action='#{knots_path}'][method=post]") do |scope|
+      scope.should have_selector("input#knot_url[name='knot[url]']")
+      scope.should have_selector("textarea#knot_summary[name='knot[summary]']")
+      scope.should have_selector("input#knot_title[name='knot[title]']")
     end
   end
 end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "/knots/show.html.haml" do
   before(:each) do
     assigns[:knot] = @knot = stub_model(Knot,
-      :url => "value for url",
+      :url => "http://url.url",
       :summary => "value for summary",
       :title => "value for title",
       :state => "value for state",
@@ -13,10 +13,9 @@ describe "/knots/show.html.haml" do
 
   it "renders attributes in <p>" do
     render
-    rendered.should have_text(/value\ for\ url/)
-    rendered.should have_text(/value\ for\ summary/)
-    rendered.should have_text(/value\ for\ title/)
-    rendered.should have_text(/value\ for\ state/)
-    rendered.should have_text(/1/)
+    rendered.should contain(/http:\/\/url.url/)
+    rendered.should contain(/value\ for\ summary/)
+    rendered.should contain(/value\ for\ title/)
+    rendered.should contain(/value\ for\ state/)
   end
 end

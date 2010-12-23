@@ -9,21 +9,10 @@ describe UsersController do
 
   describe "when signed in" do
     before(:each) do
-      @user = Factory(:email_confirmed_user)
-      @controller.current_user = @user
+      @user = Factory(:user)
+      sign_in @user
     end
   
-    describe "DELETE 'destroy'" do
-      it "should be successful" do
-        delete 'destroy', :id => @user.id
-        response.should be_redirect
-      end
-      
-      it "should report success" do
-        delete 'destroy', :id => @user.id
-        flash[:notice].should_not be_nil
-      end
-    end
   end
   
   describe "when signed out" do

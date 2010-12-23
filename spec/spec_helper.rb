@@ -16,6 +16,10 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
   config.mock_with :rspec
+  
+  #config.expect_with :rspec          # => rspec/expectations
+  #config.expect_with :stdlib         # => test/unit/assertions
+  config.expect_with :rspec, :stdlib # => both
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

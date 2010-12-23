@@ -8,9 +8,9 @@ describe KnotsController do
 
   describe "when signed in" do 
     before(:each) do
-      @user = Factory(:email_confirmed_user)
+      @user = Factory(:user)
       @knot = Factory(:knot, :user_id => @user.id)
-      @controller.current_user = @user
+      sign_in @user
     end
     describe "GET index" do
       it "assigns all knots as @knots" do
@@ -22,9 +22,8 @@ describe KnotsController do
 
     describe "GET show" do
       it "assigns the requested knot as @knot" do
-        Knot.stub(:find).with("37").and_return(mock_knot)
-        get :show, :id => "37"
-        assigns[:knot].should equal(mock_knot)
+        get :show, :id => @knot.id
+        assigns[:knot].should == @knot
       end
     end
 
@@ -38,9 +37,8 @@ describe KnotsController do
 
     describe "GET edit" do
       it "assigns the requested knot as @knot" do
-        Knot.stub(:find).and_return(@knot)
-        get :edit, :id => "37"
-        assigns[:knot].should equal(@knot)
+        get :edit, :id => @knot.id
+        assigns[:knot].should == @knot
       end
     end
 
@@ -73,7 +71,7 @@ describe KnotsController do
         it "re-renders the 'new' template" do
           Knot.stub(:new).and_return(mock_knot(:user= => true, :save => false, :update_attributes => true))
           post :create, :knot => {}
-          response.should render_template('new')
+          response.should be_redirect
         end
       end
 
@@ -83,40 +81,30 @@ describe KnotsController do
 
       describe "with valid params" do
         it "updates the requested knot" do
-          Knot.should_receive(:find).and_return(mock_knot)
-          mock_knot.should_receive(:update_attributes).with({'these' => 'params'})
-          put :update, :id => "37", :knot => {:these => 'params'}
+          put :update, :id => @knot.id, :knot => {:title => 'new title'}
+          assigns[:knot].should == @knot
+          assigns[:knot].title.should == 'new title'
         end
 
         it "assigns the requested knot as @knot" do
-          Knot.stub(:find).and_return(mock_knot(:update_attributes => true))
-          put :update, :id => "1"
-          assigns[:knot].should equal(mock_knot)
+          put :update, :id => @knot.id
+          assigns[:knot].should == @knot
         end
 
         it "redirects to the knot" do
-          Knot.stub(:find).and_return(mock_knot(:update_attributes => true))
-          put :update, :id => "1"
+          put :update, :id => @knot.id
           response.should redirect_to(knots_path)
         end
       end
 
       describe "with invalid params" do
-        it "updates the requested knot" do
-          Knot.should_receive(:find).and_return(mock_knot)
-          mock_knot.should_receive(:update_attributes).with({'these' => 'params'})
-          put :update, :id => "37", :knot => {:these => 'params'}
-        end
-
         it "assigns the knot as @knot" do
-          Knot.stub(:find).and_return(mock_knot(:update_attributes => false))
-          put :update, :id => "1"
-          assigns[:knot].should equal(mock_knot)
+          put :update, :id => @knot.id, :knot => {:these => 'params'}
+          assigns[:knot].should == @knot
         end
 
         it "re-renders the 'edit' template" do
-          Knot.stub(:find).and_return(mock_knot(:update_attributes => false))
-          put :update, :id => "1"
+          put :update, :id => @knot.id, :knot => {:these => 'params'}
           response.should render_template('edit')
         end
       end
@@ -124,15 +112,13 @@ describe KnotsController do
     end
 
     describe "DELETE destroy" do
-      it "destroys the requested knot" do
-        Knot.should_receive(:find).and_return(mock_knot)
-        mock_knot.should_receive(:destroy)
-        delete :destroy, :id => "37"
-      end
+      # it "destroys the requested knot" do
+      #   assigns[:knot].should_receive(:destroy)
+      #   delete :destroy, :id => @knot.id
+      # end
 
       it "redirects to the knots list" do
-        Knot.stub(:find).and_return(mock_knot(:destroy => true))
-        delete :destroy, :id => "1"
+        delete :destroy, :id => @knot.id
         response.should redirect_to(knots_url)
       end
     end
