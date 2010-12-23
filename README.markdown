@@ -16,7 +16,7 @@ Things you may find interesting here:
 * fully localized, using Rails i18n framework
 * iPhone interface, powered by jqTouch
 * Heroku ready
-* uses thoughtbot's Clearance for authentication. This may change in the future.
+* uses Devise for authentication.
 * Cucumber stories covering a good deal of the application's features.
 
 Getting started on Heroku
