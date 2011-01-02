@@ -8,7 +8,8 @@ class KnotsController < ApplicationController
     @knots = current_user.knots
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @knots }
+      format.xml  { render :xml => @knots   }
+      format.rss  { render :layout => false }
     end
   end
 
