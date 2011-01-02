@@ -1,5 +1,5 @@
 $.jQTouch({
-        statusBar: 'black-translucent',
+        statusBar: 'black',
         icon: false,
         useFastTouch: true,
         useAnimations: true,

@@ -7,8 +7,6 @@ module Iphone
   #   end
   #
   # you can use this in other controllers as well.
-  # I'm using Clearance in filo, which doesn't play very well (as of current version) with custom defined format;
-  # hence the commented out code in set_iphone_format and acts_as_iphone_controller
   
   module IphoneController
     
@@ -40,7 +38,7 @@ module Iphone
       end
       
       def is_iphone_request?
-        request.user_agent =~ /(Mobile\/.+Safari)/
+        request.user_agent =~ /(Mobile\/.+Safari)/ || request.user_agent =~ /iPhone/
       end
       
       def is_iphone_subdomain?
