@@ -1,8 +1,8 @@
-var jQT = new $.jQTouch({
+$.jQTouch({
         statusBar: 'black-translucent',
         icon: false,
         useFastTouch: true,
-        useAnimations: false,
+        useAnimations: true,
         preloadImages: [
             '/stylesheets/jqtouch/jqt/img/chevron.png',
             '/stylesheets/jqtouch/jqt/img/back_button.png',
@@ -15,7 +15,16 @@ var jQT = new $.jQTouch({
     });
     
 $(function() {
-  $('ul.unread li.knot a[target="_blank"]').click(function() {
-    $(this).parent('li').detach().appendTo('#read ul.read').end().click();
+  $('ul.unread li.knot a[target="_blank"]').click(function(event) {
+    var url = this.getAttribute('href');
+    $(this).parent('li').detach().appendTo('#read ul.read').end();
+    var newWindow = window.open(url, '_blank');
+    if (newWindow) {
+      if (newWindow.focus) {
+        newWindow.focus();
+      }
+      return false;
+    }
   });
+  
 });
