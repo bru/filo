@@ -1,6 +1,6 @@
 class KnotsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :find_and_require_owner, :except => [:index, :new, :show, :create]
+  before_filter :find_and_require_owner, :except => [:index, :new, :show, :create, :pop]
   
   # GET /knots
   # GET /knots.xml
@@ -139,6 +139,12 @@ class KnotsController < ApplicationController
     @knot.read!
     redirect_to @knot.url
   end
+  
+  def pop
+    @knot = current_user.knots.unread.last
+    redirect_to read_knot_path(@knot)
+  end
+    
   
 protected
   def normalize_knot_params(params={})

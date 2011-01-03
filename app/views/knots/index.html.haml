@@ -2,8 +2,9 @@
 %p
   = link_to t("knots.index.new_knot_link"), new_knot_path
   =t (".or_bookmarklet_intro")
-  = link_to t(".bookmarklet_name"), bookmarklet, { :title => t(".bookmarklet_hint"), :onclick => "alert('" + t(".bookmarklet_hint") + "'); return false;" }
+  = link_to t(".bookmarklet_name"), read_later_bookmarklet, { :title => t(".bookmarklet_hint"), :onclick => "alert('" + t(".bookmarklet_hint") + "'); return false;" }
   =t (".bookmarklet")
+  = link_to t(".other_bookmarklets"), bookmarklets_path
 %h3= t("knots.index.unread")
 = will_paginate @unread
 %ol.knots.unread

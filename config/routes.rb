@@ -12,7 +12,12 @@ Filo::Application.routes.draw do
       get 'trash'
       get 'read'
     end
+    collection do
+      get 'pop'
+    end
   end
+  
+  match 'bookmarklets' => "static#bookmarklets"
 
   root :to => "static#home"
 
