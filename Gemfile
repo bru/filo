@@ -11,6 +11,7 @@ gem 'aasm'
 gem 'haml'
 gem "friendly_id"
 gem "stringex"
+gem 'will_paginate', "~> 3.0.pre2"
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 

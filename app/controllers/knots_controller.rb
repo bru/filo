@@ -5,9 +5,12 @@ class KnotsController < ApplicationController
   # GET /knots
   # GET /knots.xml
   def index
-    @knots = current_user.knots
+    @knots  = current_user.knots
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        @unread = @knots.unread.paginate :page => params[:page], :per_page => 10
+        @read   = @knots.read[0..9]
+      end
       format.xml  { render :xml => @knots   }
       format.rss  { render :layout => false }
     end
